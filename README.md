@@ -7,6 +7,6 @@ This project proposes a machine learning empowered pill dispenser that will allo
 # Contributers
 Abin Cheriyan, Anna Minasyan, Ethan Lewis, Misha Golikov, Tandi Huran
 
-# Website 
+# PythonAnywhereHosting
 pillio.pythonanywhere.com
 
