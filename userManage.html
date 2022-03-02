@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pill.io</title>
+    <title>User Management</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -19,23 +19,48 @@
   </head>
   <body>
     <form>
-      <h3>Welcome to Pill.io</h3>
+      <h3>User Management</h3>
       <img
         src="https://cdn.discordapp.com/attachments/933802629069426771/940587646013542500/PILL.IO.png"
         alt="logo"
         class="logo"
       />
       <br />
-      <label for="username">Username</label>
+      <label for="register-username">Username</label>
       <input type="text" placeholder="Email" id="username" />
 
-      <label for="password">Password</label>
+      <label for="register-password">Password</label>
       <input type="password" placeholder="Password" id="password" />
 
-      <button class="login-button">Log In</button>
-      <div>
-        <button class="register-button">Register</button>
+      <label for="first-name">First Name</label>
+      <input type="text" placeholder="First Name" id="firstName" />
+
+      <label for="last-name">Last Name</label>
+      <input type="text" placeholder="Last Name" id="lastName" />
+
+      <label for="age">Age</label>
+      <input type="text" placeholder="Age" id="age" />
+
+      <div class="controls">
+        <label for="male" class="radio" checked
+          ><input
+            type="radio"
+            value="None"
+            id="male"
+            name="gender"
+            checked
+          />Male</label
+        >
+        <label for="female" class="radio"
+          ><input
+            type="radio"
+            value="None"
+            id="female"
+            name="gender"
+          />Female</label
+        >
       </div>
+      <button class="login-button">Register</button>
     </form>
   </body>
 </html>
