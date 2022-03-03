@@ -115,4 +115,9 @@ label {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 1em;
+}
+
+.upload{
+    height: auto;
 }
