@@ -45,7 +45,7 @@ input {
     font-weight: 300;
 }
 form {
-    height: 980px;
+    height: 580px;
     width: 400px;
     background-color: white;
     position: absolute;
@@ -57,9 +57,11 @@ form {
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
     padding: 50px 35px;
+}
+.userManage{
+    height : 980px;
     margin-top: 70px;
     min-height: 100%;
-
 }
 form * {
     font-family: 'Poppins', sans-serif;
