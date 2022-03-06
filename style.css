@@ -35,7 +35,7 @@ body {
   content: "";
   left: 0;
   bottom: 0;
-  background: url("../img/banner1.png") top left no-repeat;
+  background: url("../img/banner_1.png") top left no-repeat;
   width: 100%;
   height: 100%;
   z-index: -1;
