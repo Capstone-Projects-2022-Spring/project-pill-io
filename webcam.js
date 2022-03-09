@@ -11,7 +11,7 @@ navigator.msGetUserMedia
 );
 function startWebcam() {
 // canvas = document.getElementById("myCanvas")
-// video = document.getElementById('video')
+ video = document.getElementById('video')
 canvas = document.createElement('canvas')
 video = document.createElement('video')
 video.setAttribute('autoplay', true)
