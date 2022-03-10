@@ -2,7 +2,7 @@ import sqlite3
 
 
 
-connection = sqlite3.connect('SQLite_Python.db')
+connection = sqlite3.connect('../SQLite_Python.db')
 
 cursor = connection.cursor()
 print("database created")
