@@ -19,7 +19,7 @@ def register():
     return render_template("userManage.html")
 
 @app.route('/help')
-def register():
+def help():
     return render_template("help.html")
 
 if __name__ == "__main__":
