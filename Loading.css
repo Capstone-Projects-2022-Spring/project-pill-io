@@ -12,7 +12,7 @@ section {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: #808080;
+    background-color: rgba(102,124,225,255);
 }
 
 @keyframes changeColor {
