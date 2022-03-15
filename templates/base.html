@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pill.io</title>
+    <title>Welcome to Pill.io Website</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
 </head>
 
 <body>
-<section class="hero is-fullheight" ;>
+<section class="hero is-fullheight" style="background-color: rgba(102,124,225,255);">
 
     <div class="hero-head">
         <nav class="navbar">
@@ -18,31 +18,32 @@
 
                 <div id="navbarMenuHeroA" class="navbar-menu">
                     <div class="navbar-end">
-                        <a href="{{ url_for('main') }}" class="navbar-item">
+                        <a href="{{ url_for('main.index') }}" class="navbar-item">
                             Home
                         </a>
-
-                        <a href="{{ url_for('help') }}" class="navbar-item">
+                        {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('main.profile') }}" class="navbar-item">
                             Profile
                         </a>
-
-
-                        <a href="{{ url_for('login') }}" class="navbar-item">
+                        {% endif %}
+                        {% if not current_user.is_authenticated %}
+                        <a href="{{ url_for('auth.login') }}" class="navbar-item">
                             Login
                         </a>
-
-                        <a href="{{ url_for('register') }}" class="navbar-item">
+                        <a href="{{ url_for('auth.signup') }}" class="navbar-item">
                             Sign Up
                         </a>
+                        {% endif %}
+                        {% if current_user.is_authenticated %}
 
-                        <a href="{{ url_for('help') }}" class="navbar-item">
+                        <a href="{{ url_for('main.help') }}" class="navbar-item">
                             Help
                         </a>
 
-                        <a href="{{ url_for('login') }}" class="navbar-item">
+                        <a href="{{ url_for('auth.logout') }}" class="navbar-item">
                             Logout
                         </a>
-
+                        {% endif %}
                     </div>
                 </div>
             </div>
