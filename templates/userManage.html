@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Management</title>
-    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
@@ -16,8 +16,13 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}"/>
+
   </head>
   <body>
+    <a class="btn btn-danger logout" href="login" onclick="logout()"
+      >Log Out</a
+    >
     <form class="userManage">
       <h3>User Management</h3>
       <img
@@ -75,6 +80,7 @@
       <button class="login-button">Register</button>
     </form>
 
-    <script src="app.js"></script>
+    <script src="/static/app.js"></script>
   </body>
 </html>
+{% endblock %}
