@@ -8,3 +8,4 @@ class User(UserMixin, db.Model):
     first_name = db.Column(db.String(1000))
     last_name = db.Column(db.String(1000))
     dob = db.Column(db.String(100))
+    image = db.Column(db.String(200))

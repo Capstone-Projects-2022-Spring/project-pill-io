@@ -1,3 +1,4 @@
+import flask_login
 from flask import Flask, render_template, url_for,redirect,request
 from flask import Blueprint, render_template, flash
 from flask_login import login_required, current_user
@@ -15,7 +16,8 @@ def index():
 @main.route('/profile') # profile page that return 'profile'
 @login_required
 def profile():
-    return render_template('profile.html')
+    #flask_login.current_user
+    return render_template('profile.html', header_name = current_user)
 
 @main.route('/help') # profile page that return 'profile'
 @login_required

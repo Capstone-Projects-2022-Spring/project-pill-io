@@ -59,6 +59,7 @@ def signup(): # define the sign up function
             if file_ext not in UPLOAD_EXTENSIONS:
                 abort(400)
             uploaded_file.save(os.path.join(UPLOAD_PATH, filename))
+            image = UPLOAD_PATH + '/' + filename
 
 
         print(first_name + last_name+ dob)
@@ -70,8 +71,9 @@ def signup(): # define the sign up function
             return redirect(url_for('auth.signup'))
 
         # create a new user with the form data. Hash the password so the plaintext version isn't saved.
+        # use the recently uploaded file as the user's profile picture/face recognition picture
         new_user = User(email=email, first_name= first_name, last_name = last_name,
-                        password=generate_password_hash(password, method='sha256'), dob = dob) #
+                        password=generate_password_hash(password, method='sha256'), dob = dob, image = image)
 
         # add the new user to the database
         flash('Account created! You can login now!! ')
