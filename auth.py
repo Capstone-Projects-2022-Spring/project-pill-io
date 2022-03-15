@@ -1,6 +1,6 @@
 import os
 
-from flask import Blueprint, render_template, redirect, url_for, request, flash, current_app, abort
+from flask import Blueprint, render_template, redirect, url_for, request, flash, current_app, abort, logging, globals
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 import sys
@@ -31,6 +31,7 @@ def login(): # define login page fucntion
         # take the user-supplied password, hash it, and compare it to the hashed password in the database
         if not user:
             flash('Please sign up before!')
+
             return redirect(url_for('auth.signup'))
         elif not check_password_hash(user.password, password):
             flash('Please check your login details and try again.')
@@ -56,11 +57,10 @@ def signup(): # define the sign up function
         filename = secure_filename(uploaded_file.filename)
         if filename != '':
             file_ext = os.path.splitext(filename)[1]
-            if file_ext not in UPLOAD_EXTENSIONS:
+            if file_ext not in UPLOAD_EXTENSIONS: # disallowed extensions to be fixed!
                 abort(400)
-            uploaded_file.save(os.path.join(UPLOAD_PATH, filename))
-            image = UPLOAD_PATH + '/' + filename
-
+            uploaded_file.save(os.path.join(UPLOAD_PATH, filename)) # saves image to folder
+            image = UPLOAD_PATH + '/' + filename # sets path for the user's profile image
 
         print(first_name + last_name+ dob)
         print(password)
