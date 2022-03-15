@@ -44,6 +44,7 @@ def signup(): # define the sign up function
         last_name = request.form.get('last_name')
         password = request.form.get('password')
         dob = request.form.get('dob')
+        # image = request.form.get('image')
         print(first_name + last_name+ dob)
         print(password)
 
