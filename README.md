@@ -15,6 +15,8 @@ pillio.pythonanywhere.com
 ## Release Notes
 This is our first release, so there is no previous release to compare to. This release contains preliminary sign-up, log-in, medication registration, and authenication screens and functionallity. 
 
+[Pill.io Site Link](https://pillio.pythonanywhere.com/)
+OR Alternatively, copy and paste link below into your URL
 https://pillio.pythonanywhere.com/
 
 ## How to Use and Test
@@ -50,7 +52,6 @@ Test 2:
       - Press the Login Button at the bottom of the form
     
     Expected Results:
-    
       - The user is able to login into their already existing account with no problems, where
       - The user will see the "Medication Form" page in front of them, which is marked by the "/profile" page identifier in the URL
       - If the user checked the "Remember me" checkbox, they are able to close the website, reopen it, and still be logged in.
@@ -65,14 +66,11 @@ Test 3:
       - Click on Login button
       - Once logged in, Help page should be available to authenticated user on the navbar
       - Click on the "Help" button on navbar
-      
     
     Expected Results:
       - User should be able to access the help page and access the drop down menu with answers. The help icon in 
         the navbar will only appear if the user is logged in.
       - User should not see the help bar if they arent logged in
-    
-    
   
  Test 4:
    Logout:
