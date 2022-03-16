@@ -35,8 +35,8 @@ Test 1:
       Enter a picture of your face (it will later be used as your Profile Picture and for facial recognition)
     
     Expected Results:
-     The user is able to Sign up without any problem and the system will save the user's details onto the db. 
-     User will see an "Account created" confirmation popup
+      The user is able to Sign up without any problem and the system will save the user's details onto the db. 
+      User will see an "Account created" confirmation popup
 
 Test 2:
   Logging into an Account:
@@ -50,16 +50,16 @@ Test 3:
   Accessing help/faq page:
     
     Actions/Steps:
-    Click on Login on the navbar
-    Enter your credentials
-    Click on Login button
-    Once logged in, Help page should be available to authenticated user on the navbar
-    Click on the "Help" button on navbar
+      Click on Login on the navbar
+      Enter your credentials
+      Click on Login button
+      Once logged in, Help page should be available to authenticated user on the navbar
+      Click on the "Help" button on navbar
       
     
     Expected Results:
-    User should be able to access the help page and access the drop down menu with answers. The help icon in the navbar will only appear if the user is logged in.
-    User should not see the help bar if they arent logged in
+      User should be able to access the help page and access the drop down menu with answers. The help icon in the navbar will only appear if the user is logged in.
+      User should not see the help bar if they arent logged in
     
     
   
