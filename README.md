@@ -50,10 +50,17 @@ Test 3:
   Accessing help/faq page:
     
     Actions/Steps:
-    
+    Click on Login on the navbar
+    Enter your credentials
+    Click on Login button
+    Once logged in, Help page should be available to authenticated user on the navbar
+    Click on the "Help" button on navbar
       
     
     Expected Results:
+    User should be able to access the help page and access the drop down menu with answers. The help icon in the navbar will only appear if the user is logged in.
+    User should not see the help bar if they arent logged in
+    
 ## Source Code
 
 v1.0.0
