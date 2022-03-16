@@ -15,8 +15,6 @@ pillio.pythonanywhere.com
 ## Release Notes
 This is our first release, so there is no previous release to compare to. This release contains preliminary sign-up, log-in, medication registration, and authenication screens and functionallity. 
 
-[Pill.io Site Link](https://pillio.pythonanywhere.com/)
-OR Alternatively, copy and paste link below into your URL
 https://pillio.pythonanywhere.com/
 
 ## How to Use and Test
