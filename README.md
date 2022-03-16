@@ -18,7 +18,7 @@ This is our first release, so there is no previous release to compare to. This r
 https://pillio.pythonanywhere.com/
 
 ## How to Use and Test
-Instruction on how to use the release and how  to test. (should contains language similar Test Procedures Document) 
+Instructions on how to use and test the release (contains instructions similar to the Test Procedures document).
 
 ## UAT
 
