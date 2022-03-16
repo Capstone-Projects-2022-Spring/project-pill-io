@@ -26,17 +26,17 @@ Test 1:
   Creating an Account:
     
     Actions/Steps:
-      Click Sign Up
-      Enter Username (it has to be an email)
-      Enter your first name 
-      Enter your last name
-      Enter your preferred Password 
-      Enter your Date of Birth
-      Enter a picture of your face (it will later be used as your Profile Picture and for facial recognition)
+      - Click Sign Up
+      - Enter Username (it has to be an email)
+      - Enter your first name 
+      - Enter your last name
+      - Enter your preferred Password 
+      - Enter your Date of Birth
+      - Enter a picture of your face (it will later be used as your Profile Picture and for facial recognition)
     
     Expected Results:
-      The user is able to Sign up without any problem and the system will save the user's details onto the db. 
-      User will see an "Account created" confirmation popup
+      - The user is able to Sign up without any problem and the system will save the user's details onto the db. 
+      - User will see an "Account created" confirmation popup
 
 Test 2:
   Logging into an Account:
@@ -50,11 +50,11 @@ Test 3:
   Accessing help/faq page:
     
     Actions/Steps:
-      Click on Login on the navbar
-      Enter your credentials
-      Click on Login button
-      Once logged in, Help page should be available to authenticated user on the navbar
-      Click on the "Help" button on navbar
+      - Click on Login on the navbar
+      - Enter your credentials
+      - Click on Login button
+      - Once logged in, Help page should be available to authenticated user on the navbar
+      - Click on the "Help" button on navbar
       
     
     Expected Results:
@@ -68,13 +68,13 @@ Test 3:
    Using Webcam:
     
     Actions/Steps:
-      Click Sign Up
-      Scroll to Webcam Access Page
-      Click Start Webcam Button
-      Click Take Snapshot
+      - Click Sign Up
+      - Scroll to Webcam Access Page
+      - Click Start Webcam Button
+      - Click Take Snapshot
       
     Expected Results:
-      The user should be able to capture their face after turning on their webcam and clicking the take snapshot button. (Use Google Chrome for best results)
+      - The user should be able to capture their face after turning on their webcam and clicking the take snapshot button. (Use Google Chrome for best results)
     
 ## Source Code
 
