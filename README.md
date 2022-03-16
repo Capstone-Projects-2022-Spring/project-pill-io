@@ -20,7 +20,7 @@ https://pillio.pythonanywhere.com/
 ## How to Use and Test
 Instruction on how to use the release and how  to test. (should contains language similar Test Procedures Document) 
 
-##UAT
+## UAT
 
 Test 1:
   Creating an Account:
@@ -39,7 +39,6 @@ Test 1:
      User will see an "Account created" confirmation popup
 
 ## Source Code
-Link to source code  for this release (don't forget to use git tag)
 
 v1.0.0
 link : https://github.com/Capstone-Projects-2022-Spring/project-pill-io/releases/tag/v1.0.0
