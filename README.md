@@ -38,6 +38,22 @@ Test 1:
      The user is able to Sign up without any problem and the system will save the user's details onto the db. 
      User will see an "Account created" confirmation popup
 
+Test 2:
+  Logging into an Account:
+    
+    Actions/Steps:
+      
+    
+    Expected Results:
+     
+Test 3:
+  Accessing help/faq page:
+    
+    Actions/Steps:
+    
+      
+    
+    Expected Results:
 ## Source Code
 
 v1.0.0
