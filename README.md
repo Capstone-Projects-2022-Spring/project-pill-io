@@ -20,6 +20,24 @@ https://pillio.pythonanywhere.com/
 ## How to Use and Test
 Instruction on how to use the release and how  to test. (should contains language similar Test Procedures Document) 
 
+##UAT
+
+Test 1:
+  Create Account:
+    
+    Actions/Steps:
+      Click Sign Up
+      Enter Username (it has to be an email)
+      Enter your first name 
+      Enter your last name
+      Enter your preferred Password 
+      Enter your Date of Birth
+      Enter a picture of your face (it will later be used as your Profile Picture and for facial recognition)
+    
+  Expected Results
+     The user is able to Sign up without any problem and the system will save the user's details onto the db. 
+     User will see an "Account created" confirmation popup
+
 ## Source Code
 Link to source code  for this release (don't forget to use git tag)
 
