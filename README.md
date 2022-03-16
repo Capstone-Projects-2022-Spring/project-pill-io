@@ -65,6 +65,16 @@ Test 3:
     
   
  Test 4:
+   Logout:
+    
+    Actions/Steps:
+      - Once the user login, go to the navbar on top of the page
+      - Click the logout button on top right
+      
+    Expected Results:
+      - The user should be able to see the logout button when signed in. After the button is clicked, the website should take the user to the homepage / login screen
+      
+ Test 5:
    Using Webcam:
     
     Actions/Steps:
