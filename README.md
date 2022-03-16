@@ -23,7 +23,7 @@ Instruction on how to use the release and how  to test. (should contains languag
 ##UAT
 
 Test 1:
-  Create Account:
+  Creating an Account:
     
     Actions/Steps:
       Click Sign Up
@@ -34,7 +34,7 @@ Test 1:
       Enter your Date of Birth
       Enter a picture of your face (it will later be used as your Profile Picture and for facial recognition)
     
-  Expected Results
+    Expected Results:
      The user is able to Sign up without any problem and the system will save the user's details onto the db. 
      User will see an "Account created" confirmation popup
 
