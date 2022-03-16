@@ -26,13 +26,14 @@ Test 1:
   Creating an Account:
     
     Actions/Steps:
-      - Click Sign Up
+      - Click Sign Up on the navbar
       - Enter Username (it has to be an email)
       - Enter your first name 
       - Enter your last name
       - Enter your preferred Password 
       - Enter your Date of Birth
       - Enter a picture of your face (it will later be used as your Profile Picture and for facial recognition)
+      - Press the Sign Up Button at the bottom of the form
     
     Expected Results:
       - The user is able to Sign up without any problem and the system will save the user's details onto the db. 
@@ -42,9 +43,18 @@ Test 2:
   Logging into an Account:
     
     Actions/Steps:
-      
+      - Click Login on the navbar
+      - Enter your email in the field marked "Your Email"
+      - Enter your password in the field marked "Your Password", the password is case sensitive as usual
+      - Check the checkbox marked "Remember me" if you wish for the website/browser to save your cookies and leave you logged into account when you visit the website again
+      - Press the Login Button at the bottom of the form
     
     Expected Results:
+    
+      - The user is able to login into their already existing account with no problems, where
+      - The user will see the "Medication Form" page in front of them, which is marked by the "/profile" page identifier in the URL
+      - If the user checked the "Remember me" checkbox, they are able to close the website, reopen it, and still be logged in.
+      - If the user did not check the "Remember me" checkbox, they will be required to login again when they close and reopen the website.
      
 Test 3:
   Accessing help/faq page:
