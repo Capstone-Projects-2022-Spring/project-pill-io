@@ -58,8 +58,9 @@ Test 3:
       
     
     Expected Results:
-      User should be able to access the help page and access the drop down menu with answers. The help icon in the navbar will only appear if the user is logged in.
-      User should not see the help bar if they arent logged in
+      - User should be able to access the help page and access the drop down menu with answers. The help icon in 
+        the navbar will only appear if the user is logged in.
+      - User should not see the help bar if they arent logged in
     
     
   
