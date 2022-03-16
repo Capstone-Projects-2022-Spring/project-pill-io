@@ -61,6 +61,20 @@ Test 3:
     User should be able to access the help page and access the drop down menu with answers. The help icon in the navbar will only appear if the user is logged in.
     User should not see the help bar if they arent logged in
     
+    
+  
+ Test 4:
+   Using Webcam:
+    
+    Actions/Steps:
+      Click Sign Up
+      Scroll to Webcam Access Page
+      Click Start Webcam Button
+      Click Take Snapshot
+      
+    Expected Results:
+      The user should be able to capture their face after turning on their webcam and clicking the take snapshot button. (Use Google Chrome for best results)
+    
 ## Source Code
 
 v1.0.0
