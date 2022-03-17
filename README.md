@@ -13,7 +13,12 @@ pillio.pythonanywhere.com
 # Release v1.0.0
 
 ## Release Notes
-This is our first release, so there is no previous release to compare to. This release contains preliminary sign-up, log-in, medication registration, and authenication screens and functionallity. 
+This is our first release, so there is no previous release to compare to. This release contains preliminary:
+- Sign-Up/Registration functionality with crosschecking against existing accounts to prevent duplicate users, with password hashing and the ability to upload a user picture, where in the future, it is to be used as a profile picture and for crosschecking facial recognition.
+- Login functionality with countermeasures to prevent against incorrectly formatted emails (such as no @ symbol), as well as the hashing of user passwords using the SHA256 encryption algorithm.
+- Medication Management System where a user is able to select an arbitrary pill and select the time they wish to take it at (not yet connected to the database).
+- Authentication Success/Failure/Loading Screens, where a user is able to stream their webcam on the website and take a photo of themselves, where it will be used for facial recognition in the future.
+- NOT INCLUDED IN REPO: Facial Recognition algorithm and functionality on the Jetson Nano that allows a user to authenticate themselves by scanning their face in the camera, after which they are told how many times they've visited that camera in the past.
 
 https://pillio.pythonanywhere.com/
 
