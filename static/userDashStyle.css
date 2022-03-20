@@ -1,0 +1,167 @@
+:root {
+  --page-header-bgColor: #242e42;
+  --page-header-bgColor-hover: #1d2636;
+  --page-header-txtColor: #dde9f8;
+  --page-header-headingColor: #7889a4;
+  /* --page-header-width: 220px; */
+  --page-content-bgColor: #f0f1f6;
+  --page-content-txtColor: #171616;
+  --page-content-blockColor: #fff;
+  --white: #fff;
+  --black: #333;
+  --blue: #00b9eb;
+  --red: #ec1848;
+  --border-radius: 4px;
+  --box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
+  --switch-bgLightModeColor: #87cefa;
+  --switch-sunColor: gold;
+  --switch-moonColor: #f4f4f4;
+  --switch-bgDarkModeColor: #1f1f27;
+}
+ 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+ 
+ul {
+  list-style: none;
+}
+ 
+a,
+button {
+  color: inherit;
+}
+ 
+a {
+  text-decoration: none;
+}
+ 
+button {
+  background: none;
+  cursor: pointer;
+}
+ 
+input {
+  -webkit-appearance: none;
+}
+ 
+[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+}
+ 
+label {
+  cursor: pointer;
+}
+ 
+button,
+input {
+  border: none;
+}
+ 
+svg {
+  display: block;
+}
+ 
+body {
+  font: 16px/1.5 "Lato", sans-serif;
+}
+
+.page-content {
+  position: relative;
+  /* left: var(--page-header-width);
+  width: calc(100% - var(--page-header-width)); */
+  min-height: 100vh;
+  padding: 30px;
+  color: var(--page-content-txtColor);
+  background-color: rgba(102,124,225,255);
+}
+
+.page-content .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+}
+ 
+.page-content .grid > article {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  background: var(--page-content-blockColor);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 20px;
+}
+ 
+.page-content .grid > article:first-child,.page-content .grid > article:last-child{
+  grid-column: 1 / -1;
+}
+
+.center{
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    text-align: center;
+    font-size: 28px;
+    color: black;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.doseDescription{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 100px;
+    text-align: center;
+    font-size: 20px;
+    color: rgb(1, 113, 218);
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.schedule-pill{
+    font-size: 16px;
+}
+
+h3{
+    text-align: center;
+}
+
+.med-list-btn{
+    width: 50%;
+    background-color: black;
+    color: white;
+}
+.med-list-btn:hover{
+    width: 50%;
+    background-color: rgba(102,124,225,255);
+    color: white;
+}
+
+.tutorial{
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.tutorialCard{
+    width: 33%;
+}
+
+.icon {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+svg{
+    width : 50px;
+    height : 50px;
+}
+path{
+    fill: rgba(102,124,225,255);
+}
