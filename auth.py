@@ -1,10 +1,17 @@
+import os
 
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import Blueprint, render_template, redirect, url_for, request, flash, current_app, abort, logging, globals
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
+import sys
+
 from models import User
 from flask_login import login_user, logout_user, login_required, current_user
 from __init__ import db
 
+MAX_CONTENT_LENGTH = 1024 * 1024
+UPLOAD_EXTENSIONS = ['.jpg', '.png', '.gif']
+UPLOAD_PATH = 'userimages'
 
 auth = Blueprint('auth', __name__) # create a Blueprint object that we name 'auth'
 
@@ -24,6 +31,7 @@ def login(): # define login page fucntion
         # take the user-supplied password, hash it, and compare it to the hashed password in the database
         if not user:
             flash('Please sign up before!')
+
             return redirect(url_for('auth.signup'))
         elif not check_password_hash(user.password, password):
             flash('Please check your login details and try again.')
@@ -44,7 +52,16 @@ def signup(): # define the sign up function
         last_name = request.form.get('last_name')
         password = request.form.get('password')
         dob = request.form.get('dob')
-        # image = request.form.get('image')
+        #image file
+        uploaded_file = request.files['image']
+        filename = secure_filename(uploaded_file.filename)
+        if filename != '':
+            file_ext = os.path.splitext(filename)[1]
+            if file_ext not in UPLOAD_EXTENSIONS: # disallowed extensions to be fixed!
+                abort(400)
+            uploaded_file.save(os.path.join(UPLOAD_PATH, filename)) # saves image to folder
+            image = UPLOAD_PATH + '/' + filename # sets path for the user's profile image
+
         print(first_name + last_name+ dob)
         print(password)
 
@@ -54,8 +71,9 @@ def signup(): # define the sign up function
             return redirect(url_for('auth.signup'))
 
         # create a new user with the form data. Hash the password so the plaintext version isn't saved.
+        # use the recently uploaded file as the user's profile picture/face recognition picture
         new_user = User(email=email, first_name= first_name, last_name = last_name,
-                        password=generate_password_hash(password, method='sha256'), dob = dob) #
+                        password=generate_password_hash(password, method='sha256'), dob = dob, image = image)
 
         # add the new user to the database
         flash('Account created! You can login now!! ')

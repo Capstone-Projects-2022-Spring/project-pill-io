@@ -12,7 +12,7 @@
             {% endif %}
         {% endwith %}
 
-        <form method="POST" action="/signup">
+        <form method="POST" action="/signup" enctype="multipart/form-data">
               <img
                 src="https://cdn.discordapp.com/attachments/933802629069426771/940587646013542500/PILL.IO.png"
                 alt="logo"
@@ -48,10 +48,14 @@
                 <input type="date" id="start" name="dob">
             </div>
 
-            <label>Upload New Photo:</label
-            ><input type="file" name="image" class="upload" />
+            <label>Upload New Photo:</label>
+            <form method="POST" action="" enctype="multipart/form-data">
+                <p><input type="file" name="image"></p>
+<!--                <p><input type="submit" value="Submit Photo"></p>-->
+<!--                <input type="submit" value="Sign Up">-->
+                <button class="button is-block is-info is-large is-fullwidth">Sign Up</button>
+            </form>
 
-            <button class="button is-block is-info is-large is-fullwidth">Sign Up</button>
         </form>
     </div>
 </div>

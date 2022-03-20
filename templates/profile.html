@@ -29,7 +29,12 @@
         <h3>Medication Form</h3>
         <div>
           <div>
-            <h5>UserName</h5>
+            <h5>
+            {% if current_user.is_authenticated %}
+                Hi {{ current_user.first_name }}!
+            {% endif %}
+<!--              <img  src="./babymisha.jpg">-->
+            </h5>
             <div class="medName">
               <hr />
               <label name="">1st Pill Medication</label>
