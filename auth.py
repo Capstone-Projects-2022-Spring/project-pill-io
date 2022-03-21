@@ -11,7 +11,7 @@ from __init__ import db
 
 MAX_CONTENT_LENGTH = 1024 * 1024
 UPLOAD_EXTENSIONS = ['.jpg', '.png', '.gif']
-UPLOAD_PATH = 'userimages'
+UPLOAD_PATH = 'static/userimages'
 
 auth = Blueprint('auth', __name__) # create a Blueprint object that we name 'auth'
 
@@ -89,6 +89,7 @@ def signup(): # define the sign up function
             print (result)
 
         return redirect(url_for('auth.login'))
+
 
 @auth.route('/logout') # define logout path
 @login_required

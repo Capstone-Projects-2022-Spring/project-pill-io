@@ -11,7 +11,7 @@ body {
     flex-direction: column;
     /* margin-top: auto;
     margin-bottom: 16px; */
-    background-color: rgba(102,124,225,255);
+    background-color: lightblue;
     min-height: 100%;
 }
 .container { 
@@ -39,7 +39,7 @@ body {
     cursor: pointer;
 }
 .submit:hover{
-    background-color: rgba(102,124,225,255);
+    background-color: lightblue;
     color: #080710;
     transition: 0.3s;
 }

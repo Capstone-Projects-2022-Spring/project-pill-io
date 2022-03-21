@@ -1,11 +1,14 @@
 body{
     font-family: "Product-sans", sans-serif;
 
-    background-color: rgba(102,124,225,255);
+    /*background-color: rgba(102,124,225,255);*/
+    background-color: lightblue;
 }
 .faq-heading{
     border-bottom: #777;
-    padding: 20px 60px;
+    padding: 20px 80px;
+    font-family: 'Cabin', sans-serif;
+    font-size: 40px;
 }
 .faq-container{
 display: flex;
@@ -27,7 +30,10 @@ flex-direction: column;
     border: none;
     outline: none;
     transition: 0.4s;
-    background-color: rgba(100,120,150,250);
+    font-family: 'Sansita Swashed', cursive;
+    font-size: 30px;
+    /*background-color: rgba(100,120,150,250);*/
+    background-color: lightblue;
     margin: auto;
 }
 .faq-body{
@@ -35,6 +41,9 @@ flex-direction: column;
     /* text-align: center; */
    width: 50%;
    padding: auto;
+   font-family: 'IBM Plex Serif', serif;
+   font-size: 25px;
+
 
 }
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -45,9 +54,11 @@ flex-direction: column;
 /* Style the faq-page panel. Note: hidden by default */
 .faq-body {
     padding: 0 18px;
-    background-color: rgba(102,124,225,255);
+  /*  background-color: rgba(102,124,225,255); */
+  background-color: lightblue;
     display: none;
     overflow: hidden;
+
 }
 .faq-page:after {
     content: '\02795';
