@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+	width: 800px;
+    margin:0 auto;
+    border-radius: none;
+    background-color: #f2f2f2;
+    padding: 20px;
+
+}
+
+.row {
+display:flex;
+flex-flow:row nowrap;
+padding:1rem;/*Allows to extend the container horizontally*/
+border-bottom:1px solid blue;/*Create the separation line*/
+}
+
+label {
+display: flex;
+flex-basis:50%;/*Allows to center the field box*/
+border-radius: 2px;
+padding: 10px 10px;
+}
+
+}
+
+input[type=text] {
+flex-basis:50;
+border-radius:4px;
+border:2px solid,yellow;
+width:500px;
+height:1.5rem;
+}
+
+.header {
+    display: inline-block;
+	vertical-align: middle;
+}
+.button {
+    background-color: purple;
+    border-radius:4px;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+
+
+input, textarea, select {
+  order: 2;
+  flex: 3 3 auto;
+}
