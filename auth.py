@@ -11,7 +11,11 @@ from __init__ import db
 
 MAX_CONTENT_LENGTH = 1024 * 1024
 UPLOAD_EXTENSIONS = ['.jpg', '.png', '.gif']
+<<<<<<< HEAD
 UPLOAD_PATH = '../static/images/'
+=======
+UPLOAD_PATH = 'static/userimages'
+>>>>>>> 27084625d6a07616ce76d9e1292f5c0a9e73a7ba
 
 auth = Blueprint('auth', __name__) # create a Blueprint object that we name 'auth'
 
@@ -40,7 +44,7 @@ def login(): # define login page fucntion
 
 
         login_user(user, remember=remember)
-        return redirect(url_for('main.profile'))
+        return redirect(url_for('main.medform'))
 
 @auth.route('/signup', methods=['GET', 'POST'])# we define the sign up path
 def signup(): # define the sign up function
@@ -91,6 +95,24 @@ def signup(): # define the sign up function
             print (result)
 
         return redirect(url_for('auth.login'))
+
+
+
+#settings page
+@auth.route('/account') # define logout path
+@login_required
+def account():
+
+    return render_template('Settings.html')
+
+#userDash page
+@auth.route('/userDash') # define logout path
+@login_required
+def userDash():
+
+    return render_template('userDash.html')
+
+
 
 @auth.route('/logout') # define logout path
 @login_required
