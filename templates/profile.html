@@ -21,7 +21,7 @@
       rel="stylesheet"
       href="{{ url_for('static', filename = 'medFormStyle.css') }}"
     />
-    <link rel="stylesheet" href="../static/medFormStyle.css" />
+    <link rel="stylesheet" href="../static/css/medFormStyle.css" />
   </head>
   <body>
     <div class="container">
@@ -33,18 +33,13 @@
             {% if current_user.is_authenticated %}
                 Hi {{ current_user.first_name }}!
             {% endif %}
-<!--              <img  src="./babymisha.jpg">-->
+              <div>
+                <img src="../static/images/logo.png" alt="HTML5 Icon" style="width:128px;height:128px;">
+              </div>
             </h5>
             <div class="medName">
               <hr />
-              <label name="">1st Pill Medication</label>
-              <select>
-                <option value=" ">Pill Select</option>
-                <option value=" ">Pill A</option>
-                <option value=" ">Pill B</option>
-                <option value=" ">Pill C</option>
-                <option value=" ">Pill D</option>
-              </select>
+
             </div>
             <div class="medDose">
               <p>1st Pill Medication Dose</p>
@@ -84,7 +79,7 @@
               <p>3rd Pill Medication Dose</p>
               <label name=""><input type="checkbox" value="" /> Morning</label>
               <label name=""><input type="checkbox" value="" /> Noon</label>
-              <label name=""><input type="checkbox" value="" /> Night</label>
+              <label name=""><input type="checkbox" value="" /> Evening</label>
             </div>
           </div>
         </div>
@@ -100,6 +95,49 @@
       </form>
     </div>
 
+    <div>
+      <h4>
+
+      <form method="POST" action="/submitmeds" enctype="multipart/form-data">
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="medication_name" placeholder="Medication Name" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="medication_type" placeholder="Medication Type" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="number" name="medication_dose" placeholder="Medication Dose" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="medication_time" placeholder="Medication Dosage Time">
+                </div>
+            </div>
+
+            <button class="button is-block is-info is-large is-fullwidth">Submit Medication</button>
+
+<!--
+            <div class="field">
+                <label>Date of Birth</label>
+
+                <input type="time" id="start" name="dob">
+            </div>
+-->
+
+        </form>
+
+          </h4>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>

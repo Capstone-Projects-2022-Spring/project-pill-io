@@ -7,7 +7,7 @@ from __init__ import create_app, db
 
 
 # our main blueprint
-main = Blueprint('main', __name__)
+main = Blueprint('main', __name__, static_url_path='/static')
 
 @main.route('/') # home page that return 'index'
 def index():
