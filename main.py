@@ -15,14 +15,16 @@ def index():
 
 @main.route('/profile') # profile page that return 'profile'
 @login_required
-def profile():
+def medform():
     #flask_login.current_user
-    return render_template('profile.html', header_name = current_user)
+    return render_template('medform.html', header_name = current_user)
 
 @main.route('/help') # profile page that return 'profile'
 @login_required
 def help():
     return render_template('help.html')
+
+
 
 
 app = create_app() # we initialize our flask app using the __init__.py function
@@ -32,4 +34,4 @@ if __name__ == '__main__':
     # user image upload directory and allowed image extensions and dimensions
     app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
     app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
-    app.config['UPLOAD_PATH'] = 'userimages'
+    app.config['UPLOAD_PATH'] = 'static/userimages'
