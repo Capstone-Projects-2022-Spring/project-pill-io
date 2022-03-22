@@ -99,6 +99,13 @@ def account():
 
     return render_template('Settings.html')
 
+#userDash page
+@auth.route('/userDash') # define logout path
+@login_required
+def userDash():
+
+    return render_template('userDash.html')
+
 
 
 @auth.route('/logout') # define logout path
