@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 import sys
 
-from models import User
+from models import User, Medication
 from flask_login import login_user, logout_user, login_required, current_user
 from __init__ import db
 
@@ -90,7 +90,39 @@ def signup(): # define the sign up function
 
         return redirect(url_for('auth.login'))
 
+#medform page
 
+@auth.route('/submitmeds', methods=['GET', 'POST'])
+@login_required
+def submitmeds():
+    if request.method=='GET': # if the request is a GET we return the login page
+        return render_template('profile.html')
+    else:
+        print ('Test')
+        medication_name = request.form.get('medication_name')
+        medication_type = request.form.get('medication_type')
+        medication_dose = request.form.get('medication_dose')
+        medication_time = request.form.get('medication_time')
+
+        # new_user = User(medication_name =email, first_name=first_name, last_name=last_name,
+        #                 password=generate_password_hash(password, method='sha256'), dob=dob, image=image)
+
+        new_medication = Medication(medication_name=medication_name, medication_type=medication_type,
+                                    medication_dose=medication_dose, medication_time=medication_time)
+
+        flash('Medication created!')
+        db.session.add(new_medication)
+        db.session.commit()
+
+        result = Medication.query.filter_by(medication_name=medication_name).first()
+
+        if not result:
+            print
+            'No result found'
+        else:
+            print(result)
+        return render_template('medform.html')
+        # return redirect(url_for('main.profile'))
 
 #settings page
 @auth.route('/account') # define logout path

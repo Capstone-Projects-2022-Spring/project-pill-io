@@ -9,3 +9,10 @@ class User(UserMixin, db.Model):
     last_name = db.Column(db.String(1000))
     dob = db.Column(db.String(100))
     image = db.Column(db.String(200))
+
+class Medication(db.Model):
+    medication_id = db.Column(db.Integer, primary_key=True)
+    medication_type = db.Column(db.String(100))
+    medication_name = db.Column(db.String(100))
+    medication_dose = db.Column(db.Integer)
+    medication_time = db.Column(db.String(100))
