@@ -25,6 +25,8 @@ def help():
     return render_template('help.html')
 
 
+
+
 app = create_app() # we initialize our flask app using the __init__.py function
 if __name__ == '__main__':
     db.create_all(app = create_app()) # create the SQLite database

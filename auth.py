@@ -90,6 +90,14 @@ def signup(): # define the sign up function
 
         return redirect(url_for('auth.login'))
 
+#settings page
+@auth.route('/account') # define logout path
+@login_required
+def account():
+
+    return render_template('Settings.html')
+
+
 @auth.route('/logout') # define logout path
 @login_required
 def logout(): #define the logout function
