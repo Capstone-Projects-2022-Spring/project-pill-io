@@ -26,6 +26,14 @@ def help():
 
 
 
+@main.route('/userdash') # profile page that return 'profile'
+@login_required
+def userDash():
+    return render_template('userDash.html')
+
+
+
+
 
 app = create_app() # we initialize our flask app using the __init__.py function
 if __name__ == '__main__':
