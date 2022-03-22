@@ -15,9 +15,9 @@ def index():
 
 @main.route('/profile') # profile page that return 'profile'
 @login_required
-def profile():
+def medform():
     #flask_login.current_user
-    return render_template('profile.html', header_name = current_user)
+    return render_template('medform.html', header_name = current_user)
 
 @main.route('/help') # profile page that return 'profile'
 @login_required
@@ -25,10 +25,12 @@ def help():
     return render_template('help.html')
 
 
+
 @main.route('/userdash') # profile page that return 'profile'
 @login_required
 def userDash():
     return render_template('userDash.html')
+
 
 
 
