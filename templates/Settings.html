@@ -18,15 +18,15 @@
     <div class ="container">
       <form>
        <div class="header">
-           <h1>Account-Settings</h1>
+           <h1>Account Details</h1>
        </div>
 
         <div>
 
            <label for ="Picture">
-              Your Uploaded Picture:
+
+               <img src="{{current_user.image}}" alt="Flowers in Chania" width="240" height="240">
            </label>
-            <img src="/userimages/harry.jpg">
 
        </div>
 
@@ -48,14 +48,14 @@
            Your Email Address Is:  {{current_user.email}} </label>
 
        </div>
-
+<!--
        <div class="row">
            <label for = "Password">
            Your Password is: {{current_user.password}}
            </label>
 
        </div>
-
+-->
         <div class="row">
            <label for = "DOB">
            Your DOB is: {{current_user.dob}}
