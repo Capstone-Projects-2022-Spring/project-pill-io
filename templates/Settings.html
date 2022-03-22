@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Settings Page</title>
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/950125055898185758/950951813530673182/Logo.png">
+
+	<link rel="stylesheet" href="/static/SettingsPage.css">
+</head>
+
+<body>
+    <script type="text/javascript"
+        src="https://temple-cis-projects-in-cs.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/-9zew5j/b/7/c95134bc67d3a521bb3f4331beb9b804/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=1d3a21b2"></script>
+
+    <div class ="container">
+      <form>
+       <div class="header">
+           <h1>Account-Settings</h1>
+       </div>
+
+        <div>
+
+           <label for ="Picture">
+              Your Uploaded Picture:
+           </label>
+            <img src="/userimages/harry.jpg">
+
+       </div>
+
+       <div class="row">
+           <label for="realname">
+               Your First Name Is: {{current_user.first_name}}
+           </label>
+
+       </div>
+
+       <div class="row">
+           <label for = "Username">
+           Your Last Name Is: {{current_user.last_name}}</label>
+
+       </div>
+
+       <div class="row">
+           <label for = "Emailaddress">
+           Your Email Address Is:  {{current_user.email}} </label>
+
+       </div>
+
+       <div class="row">
+           <label for = "Password">
+           Your Password is: {{current_user.password}}
+           </label>
+
+       </div>
+
+        <div class="row">
+           <label for = "DOB">
+           Your DOB is: {{current_user.dob}}
+           </label>
+
+       </div>
+
+      <form>
+   </div>
+</body>
+
+
+
+{% endblock %}
