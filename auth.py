@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 import sys
 
-from models import User, Medication
+from models import User, Medication, Prescription
 from flask_login import login_user, logout_user, login_required, current_user
 from __init__ import db
 
@@ -115,6 +115,10 @@ def submitmeds():
         db.session.commit()
 
         result = Medication.query.filter_by(medication_name=medication_name).first()
+
+        new_prescription = Prescription(user_id=current_user.id, medication_id=new_medication.medication_id)
+        db.session.add(new_prescription)
+        db.session.commit()
 
         if not result:
             print
