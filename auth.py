@@ -3,6 +3,7 @@ import os
 from flask import Blueprint, render_template, redirect, url_for, request, flash, current_app, abort, logging, globals
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
+from flask import jsonify
 import sys
 
 from models import User, Medication, Prescription

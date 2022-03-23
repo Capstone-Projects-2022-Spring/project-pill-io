@@ -43,3 +43,6 @@ body {
     color: #080710;
     transition: 0.3s;
 }
+#medAdd{
+    margin: 16px;
+}
