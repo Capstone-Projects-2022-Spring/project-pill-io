@@ -129,3 +129,12 @@ label {
     right:10px;
     top:5px;
 }
+
+section.container {
+    background: #fff;
+    width: 620px;
+    margin: auto;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 20px #888;
+}
