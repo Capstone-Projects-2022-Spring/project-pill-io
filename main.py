@@ -3,7 +3,8 @@ from flask import Flask, render_template, url_for,redirect,request
 from flask import Blueprint, render_template, flash
 from flask_login import login_required, current_user
 from __init__ import create_app, db
-
+from flask import jsonify
+# import jyserver.Flask as jsf
 
 
 # our main blueprint
@@ -17,7 +18,15 @@ def index():
 @login_required
 def medform():
     #flask_login.current_user
+    TEMPLATES_AUTO_RELOAD = False
     return render_template('medform.html', header_name = current_user)
+# def add(self):
+#     medAdd = self.js.document.getElementById("medAdd");
+#     medForm = self.js.document.getElementById("medication_page");
+#     medContainer = self.js.document.getElementById("med_container");
+#     clone = self.js.document.getElementById("med_container").cloneNode(true);
+#     medForm.appendChild(clone);
+
 
 @main.route('/help') # profile page that return 'profile'
 @login_required
@@ -43,3 +52,5 @@ if __name__ == '__main__':
     app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
     app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
     app.config['UPLOAD_PATH'] = 'static/userimages'
+    TEMPLATES_AUTO_RELOAD = False
+    app.jinja_env.auto_reload = False
