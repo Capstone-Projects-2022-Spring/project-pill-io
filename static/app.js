@@ -1,18 +1,10 @@
-$(document).ready(function () {
-  $(".single-date-field").mask("00/00/0000", {
-    placeholder: "_ _ /_ _ /_ _ _ _",
-  });
-});
 
-//login
-function login() {
-  //validation check
+//med form
+var medAdd = document.getElementById("medAdd");
+medAdd.onclick = function () {
+  var medForm = document.getElementById("medication_page");
 
-  //set session
-  sessionStorage.setItem("username", "User1");
-}
-//logout
-function logout() {
-  // window.localStorage.clear();
-  sessionStorage.clear();
-}
+  var medContainer = document.getElementById("med_container");
+  var clone = medContainer.cloneNode(true);
+  medForm.appendChild(clone);
+};

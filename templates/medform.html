@@ -28,79 +28,82 @@
       <form class="medForm" action="" method="post">
         <h3>Medication Form</h3>
         <div>
-          <div>
+          <div >
             <h5>
             {% if current_user.is_authenticated %}
                 Hi {{ current_user.first_name }}!
             {% endif %}
 <!--              <img  src="./babymisha.jpg">-->
             </h5>
-            <div class="medName">
-              <hr />
-              <label name="">1st Pill Medication</label>
-              <select>
-                <option value=" ">Pill Select</option>
-                <option value=" ">Pill A</option>
-                <option value=" ">Pill B</option>
-                <option value=" ">Pill C</option>
-                <option value=" ">Pill D</option>
-              </select>
-            </div>
-            <div class="medDose">
-              <p>1st Pill Medication Dose</p>
-              <label name=""><input type="checkbox" value="" /> Morning</label>
-              <label name=""><input type="checkbox" value="" /> Noon</label>
-              <label name=""><input type="checkbox" value="" /> Night</label>
-            </div>
-            <div class="medName">
-              <hr />
-              <label name="">2nd Pill Medication</label>
-              <select>
-                <option value=" ">Pill Select</option>
-                <option value=" ">Pill A</option>
-                <option value=" ">Pill B</option>
-                <option value=" ">Pill C</option>
-                <option value=" ">Pill D</option>
-              </select>
-            </div>
-            <div class="medDose">
-              <p>2nd Pill Medication Dose</p>
-              <label name=""><input type="checkbox" value="" /> Morning</label>
-              <label name=""><input type="checkbox" value="" /> Noon</label>
-              <label name=""><input type="checkbox" value="" /> Night</label>
-            </div>
-            <div class="medName">
-              <hr />
-              <label name="">3rd Pill Medication</label>
-              <select>
-                <option value=" ">Pill Select</option>
-                <option value=" ">Pill A</option>
-                <option value=" ">Pill B</option>
-                <option value=" ">Pill C</option>
-                <option value=" ">Pill D</option>
-              </select>
-            </div>
-            <div class="medDose">
-              <p>3rd Pill Medication Dose</p>
-              <label name=""><input type="checkbox" value="" /> Morning</label>
-              <label name=""><input type="checkbox" value="" /> Noon</label>
-              <label name=""><input type="checkbox" value="" /> Night</label>
-            </div>
+<!--            <div class="medName">-->
+<!--              <hr />-->
+<!--              <label name="">3rd Pill Medication</label>-->
+<!--              <select>-->
+<!--                <option value=" ">Pill Select</option>-->
+<!--                <option value=" ">Pill A</option>-->
+<!--                <option value=" ">Pill B</option>-->
+<!--                <option value=" ">Pill C</option>-->
+<!--                <option value=" ">Pill D</option>-->
+<!--              </select>-->
+<!--            </div>-->
+<!--            <div class="medDose">-->
+<!--              <div>-->
+<!--                <p>3rd Pill Medication Dose</p>-->
+<!--                <label name=""><input type="checkbox" value="" /> Morning</label>-->
+<!--                <label name=""><input type="checkbox" value="" /> Noon</label>-->
+<!--                <label name=""><input type="checkbox" value="" /> Night</label>-->
+<!--              </div>-->
+<!--            </div>-->
+              <form method="POST" action="/submitmeds" enctype="multipart/form-data">
+                <div class="a-form" id="medication_page">
+                    <div class="container" id="med_container">
+                        <div class="field">
+                        <div class="control">
+                            <input class="input is-large" type="text" name="medication_name" placeholder="Medication Name" autofocus="">
+                        </div>
+                    </div>
+                        <div class="field">
+                        <div class="control">
+                            <input class="input is-large" type="text" name="medication_type" placeholder="Medication Type" autofocus="">
+                        </div>
+                    </div>
+                        <div class="field">
+                        <div class="control">
+                            <input class="input is-large" type="text" name="medication_time" placeholder="Medication Dosage Time">
+                        </div>
+                    </div>
+                        <div class="field">
+                        <div class="control">
+<!--                            <input class="input is-large" type="number" name="medication_dose" placeholder="Medication Dose" autofocus="">-->
+                            <label name=""><input type="checkbox" name="medication_dose" value="Morning" /> Morning</label>
+                            <label name=""><input type="checkbox" name="medication_dose" value="Noon" /> Noon</label>
+                            <label name=""><input type="checkbox" name="medication_dose" value="Night" /> Night</label>
+                        </div>
+                    </div>
+                        <br>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="medAdd" type="button">+</button>
+                <button class="button is-block is-info is-large is-fullwidth">Submit Medication</button>
+              </form>
           </div>
         </div>
-        <button
-          name="submit"
-          type="submit"
-          id=""
-          class="submit"
-          data-submit="...Sending"
-        >
-          Submit
-        </button>
+<!--        <button-->
+<!--          name="submit"-->
+<!--          type="submit"-->
+<!--          id=""-->
+<!--          class="submit"-->
+<!--          data-submit="...Sending"-->
+<!--        >-->
+<!--          Submit-->
+<!--        </button>-->
       </form>
     </div>
 
-    <script src="app.js"></script>
+
+    <script type=text/javascript src="{{
+  url_for('static', filename='../static/app.js') }}"></script>
   </body>
 </html>
 {% endblock %}
+
