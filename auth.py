@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 import sys
 
-from models import User
+from models import User, UserForm
 from flask_login import login_user, logout_user, login_required, current_user
 from __init__ import db
 
@@ -93,9 +93,35 @@ def signup(): # define the sign up function
 
 
 #settings page
-@auth.route('/account') # define logout path
+@auth.route('/account',methods=['GET', 'POST']) # define settings path
 @login_required
 def account():
+    form = UserForm()
+    id = current_user.id
+    name_to_update = User.query.get_or_404(id)
+    if request.method == "POST":
+        name_to_update.first_name = request.form['first_name']
+        name_to_update.last_name = request.form['last_name']
+
+        name_to_update.email = request.form['email']
+        name_to_update.dob = request.form['dob']
+        try:
+            db.session.commit()
+            flash("User Updated Successfully!")
+            return render_template("Settings.html",
+                                   form=form,
+                                   name_to_update=name_to_update)
+        except:
+            flash("Error!  Looks like there was a problem...try again!")
+            return render_template("Settings.html",
+                                   form=form,
+                                   name_to_update=name_to_update)
+    else:
+        return render_template("Settings.html",
+                               form=form,
+                               name_to_update=name_to_update,
+                               id=id
+                               )
 
     return render_template('Settings.html')
 

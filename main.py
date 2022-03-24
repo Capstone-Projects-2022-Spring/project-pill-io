@@ -2,6 +2,7 @@ import flask_login
 from flask import Flask, render_template, url_for,redirect,request
 from flask import Blueprint, render_template, flash
 from flask_login import login_required, current_user
+from models import User
 from __init__ import create_app, db
 
 
@@ -23,15 +24,6 @@ def medform():
 @login_required
 def help():
     return render_template('help.html')
-
-
-
-@main.route('/userdash') # profile page that return 'profile'
-@login_required
-def userDash():
-    return render_template('userDash.html')
-
-
 
 
 
