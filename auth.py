@@ -96,34 +96,25 @@ def signup(): # define the sign up function
 @auth.route('/account',methods=['GET', 'POST']) # define settings path
 @login_required
 def account():
+
     form = UserForm()
-    id = current_user.id
-    name_to_update = User.query.get_or_404(id)
-    if request.method == "POST":
-        name_to_update.first_name = request.form['first_name']
-        name_to_update.last_name = request.form['last_name']
 
-        name_to_update.email = request.form['email']
-        name_to_update.dob = request.form['dob']
-        try:
-            db.session.commit()
-            flash("User Updated Successfully!")
-            return render_template("Settings.html",
-                                   form=form,
-                                   name_to_update=name_to_update)
-        except:
-            flash("Error!  Looks like there was a problem...try again!")
-            return render_template("Settings.html",
-                                   form=form,
-                                   name_to_update=name_to_update)
-    else:
-        return render_template("Settings.html",
-                               form=form,
-                               name_to_update=name_to_update,
-                               id=id
-                               )
+    if form.validate_on_submit():
 
-    return render_template('Settings.html')
+        current_user.first_name = form.first_name.data
+        current_user.last_name = form.last_name.data
+        current_user.email = form.email.data
+
+        db.session.commit()
+        return redirect(url_for('user.account'))
+
+    elif request.method == 'GET':
+        form.first_name.data = current_user.first_name
+        form.last_name.data = current_user.last_name
+        form.email.data = current_user.email
+
+    return render_template('Settings.html', form=form)
+
 
 #userDash page
 @auth.route('/userDash') # define logout path
