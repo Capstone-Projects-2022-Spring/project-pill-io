@@ -1,16 +1,20 @@
 # project-pill-io
 project-pill-io created by GitHub Classroom
+# Contributers
+-  Abin Cheriyan 
+-  Anna Minasyan 
+-  Ethan Lewis
+-  Misha Golikov 
+-  Tandi Huran
 
 # Project Abstract
 This project proposes a machine learning empowered pill dispenser that will allow both caregivers and patients to have peace of mind as they partake in what for most of them is a daily requirement for their health and safety. This pill dispensing software will allow for medications to always be dispensed with only the needed medications and dosages based on the facial recognition of the patient attempting to get their medication. This will allow patients to get their medication without the struggle of opening or sorting through pill bottles and help prevent the possibility of an overdose on medications by no longer having patients access of all their medicine supply at the same time. Moreover, caregivers will be able to access data regarding the frequency and timing of when/if their patients take their medications which will help inform their care. 
 
-# Contributers
-Abin Cheriyan, Anna Minasyan, Ethan Lewis, Misha Golikov, Tandi Huran
 
 # PythonAnywhereHosting
-pillio.pythonanywhere.com
+https://pillio.pythonanywhere.com/
 
-# Release v1.0.0
+# Release v1.0.0 (FIRST MILESTONE DEMO)
 
 ## Release Notes
 This is our first release, so there is no previous release to compare to. This release contains preliminary:
@@ -20,12 +24,13 @@ This is our first release, so there is no previous release to compare to. This r
 - Authentication Success/Failure/Loading Screens, where a user is able to stream their webcam on the website and take a photo of themselves, where it will be used for facial recognition in the future.
 - NOT INCLUDED IN REPO: Facial Recognition algorithm and functionality on the Jetson Nano that allows a user to authenticate themselves by scanning their face in the camera, after which they are told how many times they've visited that camera in the past.
 
-https://pillio.pythonanywhere.com/
 
 ## How to Use and Test
 Instructions on how to use and test the release (contains instructions similar to the Test Procedures document).
 
-## UAT
+## UAT (User Acceptance Testing)
+
+!! MILESTONE DEMO 1 !!
 
 Test 1:
   Creating an Account:
@@ -97,7 +102,65 @@ Test 3:
     Expected Results:
       - The user should be able to capture their face after turning on their webcam and clicking the take snapshot button. (Use Google Chrome for best results)
     
+!! MILESTONE DEMO 2 !!
+
+Test 1:
+   (test):
+    
+    Actions/Steps:
+      - 
+      - 
+      
+    Expected Results:
+      - 
+
+Test 2:
+   (test):
+    
+    Actions/Steps:
+      - 
+      - 
+      
+    Expected Results:
+      - 
+      
+Test 3:
+   (test):
+    
+    Actions/Steps:
+      - 
+      - 
+      
+    Expected Results:
+      - 
+      
+      
+Test 4:
+   (test):
+    
+    Actions/Steps:
+      - 
+      - 
+      
+    Expected Results:
+      - 
+Test 5:
+   (test):
+    
+    Actions/Steps:
+      - 
+      - 
+      
+    Expected Results:
+      - 
+      
+      
+      
 ## Source Code
 
+!!MILESTONE DEMO 1 !!
 v1.0.0
 link : https://github.com/Capstone-Projects-2022-Spring/project-pill-io/releases/tag/v1.0.0
+
+!!MILESTONE DEMO 2 !!
+
