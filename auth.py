@@ -150,3 +150,8 @@ def userDash():
 def logout(): #define the logout function
     logout_user()
     return redirect(url_for('main.index'))
+
+@auth.route('/webcam') # define webcam path
+@login_required
+def webcam():
+    return render_template('webcam.html')

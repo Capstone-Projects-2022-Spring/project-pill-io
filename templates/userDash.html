@@ -1,6 +1,6 @@
-<!--  {% extends "base.html" %}
+{% extends "base.html" %}
 {% block content %}
--->
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="../static/userDashStyle.css" />
   </head>
   <body>
-    <!-- <header class="page-header">...</header> for Nav bar-->
     <section class="page-content">
       <section class="grid">
         <article class="banner">
@@ -32,7 +31,7 @@
             <div class="banner-content">
               <h1>Pill.IO</h1>
               <p>Your future pill dispenser will help you take medications</p>
-              <a href="" class="btn scan-btn">Scan Now</a>
+              <a href="{{ url_for('auth.webcam') }}" class="btn scan-btn">Scan Now</a>
             </div>
           </div>
         </article>
@@ -139,4 +138,4 @@
   </body>
 </html>
 
-<!-- {% endblock %}  -->
+{% endblock %}

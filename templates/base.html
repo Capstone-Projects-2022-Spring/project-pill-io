@@ -1,118 +1,98 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Pill.io!</title>
 
-     <title>
-        Welcome to Pill.io!
-        </title>
-
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        .topNav {
-          overflow: hidden;
-          background-color: #333;
-        }
+      .topNav {
+        overflow: hidden;
+        background-color: #333;
+      }
 
-        .topNav a {
-          float: left;
-          color: #f2f2f2;
-          text-align: center;
-          padding: 14px 16px;
-          font-family: 'Teko', sans-serif;
-          text-decoration: none;
-          font-size: 25px;
-        }
+      .topNav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        font-family: "Teko", sans-serif;
+        text-decoration: none;
+        font-size: 25px;
+      }
 
-        .topNav a:hover {
-          background-color: #ddd;
-          color: black;
-        }
+      .topNav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
 
-        .topNav a.active {
-          background-color: #04AA6D;
-          color: white;
-        }
+      .topNav a.active {
+        background-color: #04aa6d;
+        color: white;
+      }
 
-        img {
-            border-radius: 20px;
-            border: 5px solid #242e42;
-            }
-
-
-
-
+      img {
+        border-radius: 20px;
+        border: 5px solid #242e42;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-<section class="hero is-fullheight" style="background-color: #8a9ce5;;">
-
-
-    <div class="hero-head">
+  <body>
+    <section class="hero is-fullheight" style="background-color: #8a9ce5">
+      <div class="hero-head">
         <div class="topNav">
-            <nav class="navbar">
-
-                <div class="container">
-                    <div id="navbarMenuHeroA" class="navbar-menu" >
-                            <div class="navbar-end">
-                            <a href="{{ url_for('main.index') }}" class="navbar-item">
-                                Home
-                            </a>
-                            {% if current_user.is_authenticated %}
-                            <a href="{{ url_for('main.medform') }}" class="navbar-item">
-                                MedForm
-                            </a>
-                            {% endif %}
-                            {% if not current_user.is_authenticated %}
-                            <a href="{{ url_for('auth.login') }}" class="navbar-item">
-                                Login
-                            </a>
-                            <a href="{{ url_for('auth.signup') }}" class="navbar-item">
-                                Sign Up
-                            </a>
-                            {% endif %}
-                            {% if current_user.is_authenticated %}
-
-                            <a href="{{ url_for('main.help') }}" class="navbar-item">
-                                Help
-                            </a>
-
-                            <a href="{{ url_for('auth.account') }}" class="navbar-item">
-                                Profile
-                            </a>
-
-                            <a href="{{ url_for('auth.logout') }}" class="navbar-item">
-                                Logout
-
-                            </a>
-                            <a href="{{ url_for('auth.userDash') }}" class="navbar-item">
-                              Dashboard
-                            </a>
-                            {% endif %}
-
-                            </div>
-                    </div>
+          <nav class="navbar">
+            <div class="container">
+              <div id="navbarMenuHeroA" class="navbar-menu">
+                <div class="navbar-end">
+                  <a href="{{ url_for('main.index') }}" class="navbar-item">
+                    Home
+                  </a>
+                  {% if not current_user.is_authenticated %}
+                  <a href="{{ url_for('auth.login') }}" class="navbar-item">
+                    Login
+                  </a>
+                  <a href="{{ url_for('auth.signup') }}" class="navbar-item">
+                    Sign Up
+                  </a>
+                  {% endif %} {% if current_user.is_authenticated %}
+                  <a href="{{ url_for('auth.userDash') }}" class="navbar-item">
+                    Dashboard
+                  </a>
+                  <a href="{{ url_for('main.medform') }}" class="navbar-item">
+                    MedForm
+                  </a>
+                  <a href="{{ url_for('auth.account') }}" class="navbar-item">
+                    Profile
+                  </a>
+                  <a href="{{ url_for('main.help') }}" class="navbar-item">
+                    Help
+                  </a>
+                  <a href="{{ url_for('auth.logout') }}" class="navbar-item">
+                    Logout
+                  </a>
+                  {% endif %}
                 </div>
-
-            </nav>
+              </div>
+            </div>
+          </nav>
         </div>
-    </div>
-
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            {% block content %}{% endblock %}
-        </div>
-    </div>
-</section>
-</body>
-
+      </div>
+      {% block content %}{% endblock %}
+    </section>
+  </body>
 </html>
