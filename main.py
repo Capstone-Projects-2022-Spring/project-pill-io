@@ -3,7 +3,6 @@ from flask import Flask, render_template, url_for,redirect,request
 from flask import Blueprint, render_template, flash
 from flask_login import login_required, current_user
 from models import User
-from flask_change_password import ChangePassword, ChangePasswordForm, SetPasswordForm
 from __init__ import create_app, db
 
 
