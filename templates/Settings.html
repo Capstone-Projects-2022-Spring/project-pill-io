@@ -24,7 +24,8 @@
         src="https://temple-cis-projects-in-cs.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/-9zew5j/b/7/c95134bc67d3a521bb3f4331beb9b804/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=1d3a21b2"></script>
 
     <div class ="container">
-        <form method="POST" action="/account">
+        <form method="POST" action="/account" enctype="multipart/form-data">
+
            <div class="header">
              <h1 style="font-size:40px;">Account Details</h1>
 
@@ -107,14 +108,13 @@
                     {{ form.email(class="form-control") }}
                   </div>
 
-                  <div class="form-group">
-                      <label class="small mb-0">{{ form.profile_pic.label }}</label>
-                      {{ form.profile_pic(class="form-control") }}
-                      <form method="POST" action="" enctype="multipart/form-data">
-                      <p><input type="file" name="image"></p>
-                  </div>
+                  <label>Upload New Photo:</label>
+                  <form method="POST" action="" enctype="multipart/form-data">
+                     <p><input type="file" name="image"></p>
+                  </form>
 
-                    <input type="submit" value="Submit">
+
+                  <input type="submit" value="Submit">
 
                 </form>
               </div>

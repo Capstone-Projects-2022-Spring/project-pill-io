@@ -16,11 +16,12 @@ class User(UserMixin, db.Model):
     dob = db.Column(db.String(100))
     image = db.Column(db.String(200))
 
-    def __init__(self, email, first_name, last_name, dob):
+    def __init__(self, email, first_name, last_name, dob, image):
         self.email = email
         self.first_name = first_name
         self.last_name = last_name
         self.dob = dob
+        self.image = image
         def __repr__(self):
             return f"Username {self.first_name}"
 

@@ -104,6 +104,17 @@ def account():
         current_user.last_name = request.form.get('last_name')
         current_user.email = request.form.get('email')
         current_user.dob = request.form.get('dob')
+        #current_user.image = request.form.get('image')
+        uploaded_file = request.files['image']
+        filename = secure_filename(uploaded_file.filename)
+        if filename != '':
+            file_ext = os.path.splitext(filename)[1]
+            if file_ext not in UPLOAD_EXTENSIONS:  # disallowed extensions to be fixed!
+                abort(400)
+            uploaded_file.save(os.path.join(UPLOAD_PATH, filename))  # saves image to folder
+            image = UPLOAD_PATH + '/' + filename  #
+            current_user.image = image
+
 
         print("mehh" + current_user.first_name + current_user.last_name)
         try:
