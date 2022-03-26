@@ -80,7 +80,7 @@ def signup(): # define the sign up function
         db.session.add(new_user)
         db.session.commit()
 
-        result = User.query.filter_by(first_name = first_name).first()
+        result = User.query.filter_by(id = current_user.id).first()
 
         if not result:
             print
@@ -99,21 +99,29 @@ def account():
 
     form = UserForm()
 
-    if form.validate_on_submit():
+    if request.method == "POST":
+        current_user.first_name = request.form.get('first_name')
+        current_user.last_name = request.form.get('last_name')
+        current_user.email = request.form.get('email')
+        current_user.dob = request.form.get('dob')
 
-        current_user.first_name = form.first_name.data
-        current_user.last_name = form.last_name.data
-        current_user.email = form.email.data
-
-        db.session.commit()
-        return redirect(url_for('user.account'))
-
+        print("mehh" + current_user.first_name + current_user.last_name)
+        try:
+            db.session.commit()
+            return redirect(url_for('user.account'))
+        except:
+            flash("Error!  Looks like there was a problem...try again!")
     elif request.method == 'GET':
+        print(current_user.id)
         form.first_name.data = current_user.first_name
         form.last_name.data = current_user.last_name
         form.email.data = current_user.email
+        form.dob.data = current_user.dob
+        db.session.commit()
+        print("hello "+ current_user.first_name + current_user.last_name )
 
-    return render_template('Settings.html', form=form)
+
+    return render_template('Settings.html', form = form)
 
 
 #userDash page
