@@ -46,6 +46,8 @@ def userDash():
 
 app = create_app() # we initialize our flask app using the __init__.py function
 if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=7001, debug=True)
+
     db.create_all(app = create_app()) # create the SQLite database
     app.run(debug=True) # run the flask app on debug mode
     # user image upload directory and allowed image extensions and dimensions
