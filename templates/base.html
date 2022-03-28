@@ -82,21 +82,23 @@
                             {% endif %}
                             {% if current_user.is_authenticated %}
 
+                            <a href="{{ url_for('auth.userDash') }}" class="navbar-item">
+                              Dashboard
+                            </a>
+
                             <a href="{{ url_for('main.help') }}" class="navbar-item">
                                 Help
                             </a>
 
                             <a href="{{ url_for('auth.account') }}" class="navbar-item">
-                                Profile
+                                Account
                             </a>
 
                             <a href="{{ url_for('auth.logout') }}" class="navbar-item">
                                 Logout
 
                             </a>
-                            <a href="{{ url_for('auth.userDash') }}" class="navbar-item">
-                              Dashboard
-                            </a>
+
                             {% endif %}
 
                             </div>
