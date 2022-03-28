@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome To Pill.IO</title>
+    <title>UserDash Board</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/all.min.css"
@@ -45,7 +45,7 @@
 						</svg>
                 </div>
               Morning <br />
-              <ul class="schedule-pill list-group">
+              <ul class="schedule-pill list-group" id="morningMed">
                     <li class="list-group-item">
                         Pill A
                     </li>
@@ -60,7 +60,7 @@
 						</svg>
                 </div>
               Noon <br />
-              <ul class="schedule-pill list-group">
+              <ul class="schedule-pill list-group" id="noonMed">
                     <li class="list-group-item">
                         Pill A
                     </li>
@@ -75,7 +75,7 @@
 						</svg>
                 </div>
               Night <br />
-                <ul class="schedule-pill list-group">
+                <ul class="schedule-pill list-group" id="nightMed">
                     <li class="list-group-item">
                         Pill C
                     </li>
@@ -90,7 +90,7 @@
         <article class="medList center">
           <h3 class="title">Medication List</h3>
           <br />
-          <a href="" class="btn med-list-btn">Check Here</a>
+          <a href="" class="btn med-list-btn" id="medList">Check Here</a>
         </article>
         <article class="tutorial">
             <div class="turorialCard">
@@ -135,6 +135,8 @@
         </article>
       </section>
     </section>
+    <script type=text/javascript src="{{
+  url_for('static', filename='../static/userDashBoard.js') }}"></script>
   </body>
 </html>
 
