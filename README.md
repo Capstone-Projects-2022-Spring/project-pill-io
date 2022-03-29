@@ -118,11 +118,14 @@ Test 2:
    (test):
     
     Actions/Steps:
-      - 
-      - 
+      - Login using your credentials
+      - Click on "Account" on the navbar up top
+      - Scroll down to the bottom to where it says "Change DoB"
+      - Enter your new DoB in the same format as it previously was
+      - Press Submit and you will see your updated DoB
       
     Expected Results:
-      - 
+      - Upon successfully changing DoB, the user should see his updated DoB on the settings page
       
 Test 3:
    (Changing / Uploading Your email):
