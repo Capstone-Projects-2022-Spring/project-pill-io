@@ -108,6 +108,25 @@ Test 3:
 # Release v2.0.0 (SECOND MILESTONE DEMO)
 !! MILESTONE DEMO 2 !!
 
+## Release Notes
+
+What's Changed: 
+      Merge Pi 119 implement user login data retrieval functionality into Main by @mishagolikov in #16
+      Create userDash board without banner by @t-harun in #17
+      Pi 136 update settings UI by @tuh00755 in #18
+      Improved UI Look by @tuh00755 in #19
+      Issue Collector by @tuh00755 in #21
+      Added banner with button for scan by @t-harun in #22
+      Pi 134 fix hello username issue in profile page by @t-harun in #23
+      Merge 134 - Fixed corrupt DB file, now fully working into main by @mishagolikov in #24
+      Add files via upload by @AnyaMin in #25
+      Settings merge conflict Resolved by @Ethanterrel in #27
+      Pi 139 implement medication schedule function in user dash board by @t-harun in #29
+      Pi 140 reformat website navigation by @t-harun in #28
+      Merge 141 - Medform and MedList into main by @mishagolikov in #30
+      Merge Pi 141 add pill dispensing related fields to database and add fields to related forms into main branch by @mishagolikov in #32
+
+
 ## How to create an account and log in
 
   Creating an Account:
@@ -119,7 +138,8 @@ Test 3:
       - Enter your last name
       - Enter your preferred Password 
       - Enter your Date of Birth
-      - Enter a picture of your face (it will later be used as your Profile Picture and for facial recognition)
+      - Enter a picture of your face (THIS STEP IS REQUIRED & {'.jpg', '.png', '.gif'} FORMATS ONLY)
+          - it will later be used as your Profile Picture and for facial recognition
       - Press the Sign Up Button at the bottom of the form
     
     Expected Results:
@@ -145,16 +165,6 @@ Test 3:
 ## User Acceptance Tests
 
 Test 1:
-   (test):
-    
-    Actions/Steps:
-      - 
-      - 
-      
-    Expected Results:
-      - 
-
-Test 2:
    (Changing / Updating your DoB):
     
     Actions/Steps:
@@ -167,7 +177,7 @@ Test 2:
     Expected Results:
       - Upon successfully changing DoB, the user should see his updated DoB on the settings page
       
-Test 3:
+Test 2:
    (Changing / Uploading Your email):
     
     Actions/Steps:
@@ -182,7 +192,7 @@ Test 3:
         settings page and the user will not be able to login back into that account with that credentials.
       
       
-Test 4:
+Test 3:
    (Changing / Uploading a new profile Pic):
     
     Actions/Steps:
@@ -198,7 +208,7 @@ Test 4:
       - Upon successfully uploading the pic, the user should see his or her updated profile pic (240pxx240px)
         in the settings page
 
-Test 5:
+Test 4:
 (Changing / Updating a new First/Last name):
     
     Actions/Steps:
@@ -212,7 +222,7 @@ Test 5:
     Expected Results:
       - Upon successfully submitting, the user should see his updated First and Last name assoicated with his account
       
-Test 6:
+Test 5:
 (Entering/Submitting a new Medication/Prescription):
 
     Actions/Steps:
@@ -230,7 +240,7 @@ Test 6:
       - Upon successfully submitting, the page will refresh and the form will clear, marking that
         your medication has been successfully submitted
       
-Test 7:
+Test 6:
 (Viewing one's Medication list):
 
     Actions/Steps:
