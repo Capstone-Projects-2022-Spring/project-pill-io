@@ -178,10 +178,13 @@ Test 6:
       - Click on "Medform" on the navbar up top
       - Scroll down and click on the "+" button at the bottom of the form to add another form
       - Fill out the required information for each medication form (two medications/two forms)
-      - For this release, each medication name and class must be unique and must not be already         existing duplicates.
+      - For this release, each medication name and class must be unique and must not be already existing duplicates
       - Furthermore, the dosage field must be filled out in the format of "XXmg", instead of 
         "XX" or "XX mg", where XX is the number of milligrams of the medication.
-      - Once you're done filling out the form, click submit at the bottom of the form.
+      - Once you're done filling out the form, click submit at the bottom of the form
+      
+    Expected Results:
+      - Upon successfully submitting, the page will refresh and the form will clear, marking that your medication has been successfully submitted
       
 Test 7:
 (Viewing one's Medication list):
@@ -193,6 +196,10 @@ Test 7:
         button to retrieve a list of your medications
       - Look at your newly visible medication list and make sure it matches the ones entered
         in Test 6
+        
+    Expected Results:
+      - Upon successfully retrieving the list, one should see a table of their newly created 
+        medications from Test 6, with Name, Type, Dose, and Time columns visible in the table
       
 ## Source Code
 
