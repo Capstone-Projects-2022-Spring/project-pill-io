@@ -85,7 +85,38 @@
         <article class="medList center">
           <h3 class="title">Medication List</h3>
           <br />
-          <a href="" class="btn med-list-btn">Check Here</a>
+            <table style="margin-left: 20px;">
+                <th>
+                    <tr style="color: black; ">
+
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Dose</th>
+                        <th>Time</th>
+
+                        {% for Medication in query %}
+                        <tr>
+                            <td>
+                                {{Medication.medication_name}}
+                            </td>
+                            <td>
+                                {{Medication.medication_type}}
+                            </td>
+                            <td>
+                                {{Medication.medication_dose}}
+                            </td>
+                            <td>
+                                {{Medication.medication_time}}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tr>
+                </th>
+
+            </table>
+          <a href="" class="btn med-list-btn"> Check Here</a>
+
+
         </article>
         <article class="tutorial">
             <div class="turorialCard">

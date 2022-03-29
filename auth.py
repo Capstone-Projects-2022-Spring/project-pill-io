@@ -143,10 +143,28 @@ def userDash():
 
     return render_template('userDash.html')
 
-
-
 @auth.route('/logout') # define logout path
 @login_required
 def logout(): #define the logout function
     logout_user()
     return redirect(url_for('main.index'))
+
+@auth.route('/getmeds', methods=["GET", "POST"])
+@login_required
+def getmeds():
+    if request.method == 'GET':
+        query = db.session.query(Medication)
+
+        query = query.outerjoin(Prescription, Medication.medication_id == Prescription.medication_id)
+
+        query = query.filter(Prescription.user_id == current_user.id)
+
+        results = query.all()
+
+        return render_template("userDash.html", query=results)
+
+    else:
+        return render_template("userDash.html")
+
+
+
