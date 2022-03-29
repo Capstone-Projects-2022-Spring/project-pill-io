@@ -102,6 +102,7 @@ Test 3:
     Expected Results:
       - The user should be able to capture their face after turning on their webcam and clicking the take snapshot button. (Use Google Chrome for best results)
     
+# Release v2.0.0 (SECOND MILESTONE DEMO)
 !! MILESTONE DEMO 2 !!
 
 Test 1:
@@ -156,7 +157,7 @@ Test 4:
       - Upon successfully uploading the pic, the user should see his or her updated profile pic (240pxx240px) in the settings page
 
 Test 5:
-(Changing / Updating a new First/Last name:
+(Changing / Updating a new First/Last name):
     
     Actions/Steps:
       - Login using your credentials
@@ -169,7 +170,29 @@ Test 5:
     Expected Results:
       - Upon successfully submitting, the user should see his updated First and Last name assoicated with his account
       
+Test 6:
+(Entering/Submitting a new Medication/Prescription):
+
+    Actions/Steps:
+      - Login using your credentials
+      - Click on "Medform" on the navbar up top
+      - Scroll down and click on the "+" button at the bottom of the form to add another form
+      - Fill out the required information for each medication form (two medications/two forms)
+      - For this release, each medication name and class must be unique and must not be already         existing duplicates.
+      - Furthermore, the dosage field must be filled out in the format of "XXmg", instead of 
+        "XX" or "XX mg", where XX is the number of milligrams of the medication.
+      - Once you're done filling out the form, click submit at the bottom of the form.
       
+Test 7:
+(Viewing one's Medication list):
+
+    Actions/Steps:
+      - Login using your credentials
+      - Click on "Dashboard" on the navbar up top
+      - Scroll down and locate the "Medication List" containter; press the "Get Medication"
+        button to retrieve a list of your medications
+      - Look at your newly visible medication list and make sure it matches the ones entered
+        in Test 6
       
 ## Source Code
 
