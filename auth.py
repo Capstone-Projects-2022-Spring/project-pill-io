@@ -3,7 +3,7 @@ import os
 from flask import Blueprint, render_template, redirect, url_for, request, flash, current_app, abort, logging, globals
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
-from flask import jsonify
+
 import sys
 
 from models import User, Medication, Prescription
@@ -41,7 +41,7 @@ def login(): # define login page fucntion
 
 
         login_user(user, remember=remember)
-        return redirect(url_for('main.medform'))
+        return render_template('userDash.html');
 
 @auth.route('/signup', methods=['GET', 'POST'])# we define the sign up path
 def signup(): # define the sign up function
@@ -97,7 +97,7 @@ def signup(): # define the sign up function
 @login_required
 def submitmeds():
     if request.method=='GET': # if the request is a GET we return the login page
-        return render_template('profile.html')
+        return render_template('medform.html')
     else:
         print ('Test')
         medication_name = request.form.get('medication_name')
@@ -114,7 +114,7 @@ def submitmeds():
         flash('Medication created!')
         db.session.add(new_medication)
         db.session.commit()
-
+            
         result = Medication.query.filter_by(medication_name=medication_name).first()
 
         new_prescription = Prescription(user_id=current_user.id, medication_id=new_medication.medication_id)
@@ -137,7 +137,7 @@ def account():
     return render_template('Settings.html')
 
 #userDash page
-@auth.route('/userDash') # define logout path
+@auth.route('/userDash') # define userdash
 @login_required
 def userDash():
 
