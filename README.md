@@ -56,7 +56,8 @@ Test 2:
       - Click Login on the navbar
       - Enter your email in the field marked "Your Email"
       - Enter your password in the field marked "Your Password", the password is case sensitive as usual
-      - Check the checkbox marked "Remember me" if you wish for the website/browser to save your cookies and leave you logged into account when you visit the website again
+      - Check the checkbox marked "Remember me" if you wish for the website/browser to save your cookies
+        and leave you logged into account when you visit the website again
       - Press the Login Button at the bottom of the form
     
     Expected Results:
@@ -88,7 +89,8 @@ Test 3:
       - Click the logout button on top right
       
     Expected Results:
-      - The user should be able to see the logout button when signed in. After the button is clicked, the website should take the user to the homepage / login screen
+      - The user should be able to see the logout button when signed in. After the button is clicked, the website
+        should take the user to the homepage / login screen
       
  Test 5:
    Using Webcam:
@@ -100,7 +102,8 @@ Test 3:
       - Click Take Snapshot
       
     Expected Results:
-      - The user should be able to capture their face after turning on their webcam and clicking the take snapshot button. (Use Google Chrome for best results)
+      - The user should be able to capture their face after turning on their webcam and clicking the take
+        snapshot button. (Use Google Chrome for best results)
     
 # Release v2.0.0 (SECOND MILESTONE DEMO)
 !! MILESTONE DEMO 2 !!
@@ -139,7 +142,8 @@ Test 3:
       - Press Submit and you will see your updated email
       
     Expected Results:
-      - Upon successfully changing the email, the user should see his or her updated email in the settings page and the user will not be able to login back into that account with that credentials.
+      - Upon successfully changing the email, the user should see his or her updated email in the 
+        settings page and the user will not be able to login back into that account with that credentials.
       
       
 Test 4:
@@ -149,12 +153,14 @@ Test 4:
       - Login using your credentials
       - Click on "Account" on the navbar up top
       - Scroll down to the bottom to where it says "Upload New PROFILE Photo"
-      - File format has to be one of these {'.jpg', '.png', '.gif'}. Anything else will throw an error or crash the website
+      - File format has to be one of these {'.jpg', '.png', '.gif'}. Anything else will throw an error 
+        or crash the website
       - Upload your new Picture
-      - Scrol up to the top of the page and youll see your updated/new picture
+      - Scroll up to the top of the page and youll see your updated/new picture
       
     Expected Results:
-      - Upon successfully uploading the pic, the user should see his or her updated profile pic (240pxx240px) in the settings page
+      - Upon successfully uploading the pic, the user should see his or her updated profile pic (240pxx240px)
+        in the settings page
 
 Test 5:
 (Changing / Updating a new First/Last name):
@@ -178,13 +184,15 @@ Test 6:
       - Click on "Medform" on the navbar up top
       - Scroll down and click on the "+" button at the bottom of the form to add another form
       - Fill out the required information for each medication form (two medications/two forms)
-      - For this release, each medication name and class must be unique and must not be already existing duplicates
+      - For this release, each medication name and class must be unique and must not be 
+        already existing duplicates
       - Furthermore, the dosage field must be filled out in the format of "XXmg", instead of 
         "XX" or "XX mg", where XX is the number of milligrams of the medication.
       - Once you're done filling out the form, click submit at the bottom of the form
       
     Expected Results:
-      - Upon successfully submitting, the page will refresh and the form will clear, marking that your medication has been successfully submitted
+      - Upon successfully submitting, the page will refresh and the form will clear, marking that
+        your medication has been successfully submitted
       
 Test 7:
 (Viewing one's Medication list):
