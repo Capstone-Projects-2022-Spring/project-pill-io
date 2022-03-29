@@ -157,12 +157,12 @@ def submitmeds():
                                          medication_dose=medication_dose3, medication_time=medication_time3)
 
             flash('Medication created!')
-            db.session.add(new_medication2)
+            db.session.add(new_medication3)
             db.session.commit()
 
-            new_prescription2 = Prescription(
+            new_prescription3 = Prescription(
                 user_id=current_user.id, medication_id=new_medication3.medication_id)
-            db.session.add(new_prescription2)
+            db.session.add(new_prescription3)
             db.session.commit()
         else:
             print("Not Exist")
