@@ -125,17 +125,17 @@ Test 2:
       - 
       
 Test 3:
-   (Changing / Uploading a new profile Pic):
+   (Changing / Uploading Your email):
     
     Actions/Steps:
       - Login using your credentials
       - Click on "Account" on the navbar up top
-      - Scroll down to the bottom to where it says "Upload New PROFILE Photo"
-      - Upload your new Picture
-      - Scrol up to the top of the page and youll see your updated/new picture
+      - Scroll down to the bottom to where it says "Change your email"
+      - Enter your new email
+      - Press Submit and you will see your updated email
       
     Expected Results:
-      - Upon successfully uploading the pic, the user should see his or her updated profile pic (240pxx240px) in the settings page
+      - Upon successfully changing the email, the user should see his or her updated email in the settings page and the user will not be able to login back into that account with that credentials.
       
       
 Test 4:
