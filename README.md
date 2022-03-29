@@ -108,9 +108,10 @@ Test 3:
 # Release v2.0.0 (SECOND MILESTONE DEMO)
 !! MILESTONE DEMO 2 !!
 
-## Release Notes
+## Release Notes ##
 
-What's Changed: 
+What's Changed:
+
       - Merge Pi 119 implement user login data retrieval functionality into Main by @mishagolikov in #16
       - Create userDash board without banner by @t-harun in #17
       - Pi 136 update settings UI by @tuh00755 in #18
