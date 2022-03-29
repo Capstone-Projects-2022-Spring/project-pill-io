@@ -161,7 +161,7 @@ def submitmeds():
             db.session.commit()
 
             new_prescription2 = Prescription(
-                user_id=current_user.id, medication_id=new_medication2.medication_id)
+                user_id=current_user.id, medication_id=new_medication3.medication_id)
             db.session.add(new_prescription2)
             db.session.commit()
         else:
