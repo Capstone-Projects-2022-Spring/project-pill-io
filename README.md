@@ -139,14 +139,18 @@ Test 3:
       
       
 Test 4:
-   (test):
+   (Changing / Uploading a new profile Pic):
     
     Actions/Steps:
-      - 
-      - 
+      - Login using your credentials
+      - Click on "Account" on the navbar up top
+      - Scroll down to the bottom to where it says "Upload New PROFILE Photo"
+      - Upload your new Picture
+      - Scrol up to the top of the page and youll see your updated/new picture
       
     Expected Results:
-      - 
+      - Upon successfully uploading the pic, the user should see his or her updated profile pic (240pxx240px) in the settings page
+
 Test 5:
    (test):
     
