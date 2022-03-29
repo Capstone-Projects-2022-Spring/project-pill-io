@@ -167,8 +167,12 @@ Test 5:
 ## Source Code
 
 !!MILESTONE DEMO 1 !!
+
 v1.0.0
 link : https://github.com/Capstone-Projects-2022-Spring/project-pill-io/releases/tag/v1.0.0
 
 !!MILESTONE DEMO 2 !!
+
+v2.0.0
+https://github.com/Capstone-Projects-2022-Spring/project-pill-io/releases/tag/v2.0.0
 
