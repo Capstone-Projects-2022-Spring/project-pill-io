@@ -145,6 +145,7 @@ Test 4:
       - Login using your credentials
       - Click on "Account" on the navbar up top
       - Scroll down to the bottom to where it says "Upload New PROFILE Photo"
+      - File format has to be one of these {'.jpg', '.png', '.gif'}. Anything else will throw an error or crash the website
       - Upload your new Picture
       - Scrol up to the top of the page and youll see your updated/new picture
       
