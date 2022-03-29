@@ -191,3 +191,22 @@ def logout(): #define the logout function
 @login_required
 def webcam():
     return render_template('webcam.html')
+
+@auth.route('/getmeds', methods=["GET", "POST"])
+@login_required
+def getmeds():
+    if request.method == 'GET':
+        query = db.session.query(Medication)
+
+        query = query.outerjoin(Prescription, Medication.medication_id == Prescription.medication_id)
+
+        query = query.filter(Prescription.user_id == current_user.id)
+
+        results = query.all()
+
+        print(results)
+
+        return render_template("userDash.html", query=results)
+
+    else:
+        return render_template("userDash.html")

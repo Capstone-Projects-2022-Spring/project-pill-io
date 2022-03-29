@@ -90,7 +90,40 @@
         <article class="medList center">
           <h3 class="title">Medication List</h3>
           <br />
-          <a href="" class="btn med-list-btn" id="medList">Check Here</a>
+
+            <form method="GET" action="/getmeds" enctype="multipart/form-data">
+            <table style="margin-left: 1px;">
+                <th>
+                    <tr style="color: black; ">
+
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Dose</th>
+                        <th>Time</th>
+
+                        {% for medication in query %}
+                        <tr style="color: black;">
+                            <td>
+                                {{medication.medication_name}}
+                            </td>
+                            <td>
+                                {{medication.medication_type}}
+                            </td>
+                            <td>
+                                {{medication.medication_dose}}
+                            </td>
+                            <td>
+                                {{medication.medication_time}}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tr>
+                </th>
+
+            </table>
+            <button class="button is-block is-info is-large is-fullwidth">Get Medication</button>
+            </form>
+
         </article>
         <article class="tutorial">
             <div class="turorialCard">
