@@ -156,11 +156,15 @@ Test 5:
    (test):
     
     Actions/Steps:
-      - 
-      - 
+      - Login using your credentials
+      - Click on "Account" on the navbar up top
+      - Scroll down to the bottom where it says change your First Name
+      - Scroll down to the bottom where it says change your Last Name
+      - Enter your new First Name and Last Name
+      - Press Submit and you will see your updated First and Last Name
       
     Expected Results:
-      - 
+      - Upon successfully submitting, the user should see his updated First and Last name assoicated with his account
       
       
       
