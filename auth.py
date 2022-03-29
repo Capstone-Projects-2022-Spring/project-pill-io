@@ -147,11 +147,11 @@ def submitmeds():
             db.session.commit()
         else:
             print("Not Exist")
-        if (request.form.get('medication_name2')):
-            medication_name3 = request.form.get('medication_name2')
-            medication_type3 = request.form.get('medication_type2')
-            medication_dose3 = request.form.get('medication_dose2')
-            medication_time3 = request.form.get('medication_time2')
+        if (request.form.get('medication_name3')):
+            medication_name3 = request.form.get('medication_name3')
+            medication_type3 = request.form.get('medication_type3')
+            medication_dose3 = request.form.get('medication_dose3')
+            medication_time3 = request.form.get('medication_time3')
 
             new_medication3 = Medication(medication_name=medication_name3, medication_type=medication_type3,
                                          medication_dose=medication_dose3, medication_time=medication_time3)
