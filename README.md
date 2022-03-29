@@ -115,7 +115,7 @@ Test 1:
       - 
 
 Test 2:
-   (test):
+   (Changing / Updating your DoB):
     
     Actions/Steps:
       - Login using your credentials
@@ -156,7 +156,7 @@ Test 4:
       - Upon successfully uploading the pic, the user should see his or her updated profile pic (240pxx240px) in the settings page
 
 Test 5:
-   (test):
+(Changing / Updating a new First/Last name:
     
     Actions/Steps:
       - Login using your credentials
