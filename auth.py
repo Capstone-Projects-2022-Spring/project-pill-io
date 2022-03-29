@@ -115,17 +115,52 @@ def submitmeds():
         db.session.add(new_medication)
         db.session.commit()
             
-        result = Medication.query.filter_by(medication_name=medication_name).first()
+        # result = Medication.query.filter_by(medication_name=medication_name).first()
 
         new_prescription = Prescription(user_id=current_user.id, medication_id=new_medication.medication_id)
         db.session.add(new_prescription)
         db.session.commit()
 
-        if not result:
-            print
-            'No result found'
-        else:
-            print(result)
+        if "medication_name2" in request.form:
+
+            medication_name2 = request.form.get('medication_name2')
+            medication_type2 = request.form.get('medication_type2')
+            medication_dose2 = request.form.get('medication_dose2')
+            medication_time2 = request.form.get('medication_time2')
+
+            new_medication2 = Medication(medication_name=medication_name2, medication_type=medication_type2,
+                                        medication_dose=medication_dose2, medication_time=medication_time2)
+
+            flash('Medication created!')
+            db.session.add(new_medication2)
+            db.session.commit()
+
+            new_prescription2 = Prescription(user_id=current_user.id, medication_id=new_medication2.medication_id)
+            db.session.add(new_prescription2)
+            db.session.commit()
+
+        if "medication_name3" in request.form:
+            medication_name3 = request.form.get('medication_name3')
+            medication_type3 = request.form.get('medication_type3')
+            medication_dose3 = request.form.get('medication_dose3')
+            medication_time3 = request.form.get('medication_time3')
+
+            new_medication3 = Medication(medication_name=medication_name3, medication_type=medication_type3,
+                                        medication_dose=medication_dose3, medication_time=medication_time3)
+
+            flash('Medication created!')
+            db.session.add(new_medication3)
+            db.session.commit()
+
+            new_prescription3 = Prescription(user_id=current_user.id, medication_id=new_medication3.medication_id)
+            db.session.add(new_prescription3)
+            db.session.commit()
+        #
+        # if not result:
+        #     print
+        #     'No result found'
+        # else:
+        #     print(result)
         return render_template('medform.html')
         # return redirect(url_for('main.profile'))
 
