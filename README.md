@@ -111,7 +111,6 @@ Test 3:
 ## Release Notes ##
 
 What's Changed:
-
       - Merge Pi 119 implement user login data retrieval functionality into Main by @mishagolikov in #16
       - Create userDash board without banner by @t-harun in #17
       - Pi 136 update settings UI by @tuh00755 in #18
@@ -140,6 +139,7 @@ What's Changed:
       - Enter your preferred Password 
       - Enter your Date of Birth
       - Enter a picture of your face (THIS STEP IS REQUIRED & {'.jpg', '.png', '.gif'} FORMATS ONLY)
+          - Use different pictures since or the database will throw an error if the pic isnt unique
           - it will later be used as your Profile Picture and for facial recognition
       - Press the Sign Up Button at the bottom of the form
     
