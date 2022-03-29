@@ -6,7 +6,7 @@ from werkzeug.utils import secure_filename
 
 import sys
 
-from models import User, Medication, Prescription
+from models import User, UserForm, Medication, Prescription
 from flask_login import login_user, logout_user, login_required, current_user
 from __init__ import db
 
@@ -129,12 +129,49 @@ def submitmeds():
         return render_template('medform.html')
         # return redirect(url_for('main.profile'))
 
+
 #settings page
-@auth.route('/account') # define logout path
+@auth.route('/account',methods=['GET', 'POST']) # define settings path
 @login_required
 def account():
 
-    return render_template('Settings.html')
+    form = UserForm()
+
+    if request.method == "POST":
+        current_user.first_name = request.form.get('first_name')
+        current_user.last_name = request.form.get('last_name')
+        current_user.email = request.form.get('email')
+        current_user.dob = request.form.get('dob')
+        #current_user.image = request.form.get('image')
+        uploaded_file = request.files['image']
+        filename = secure_filename(uploaded_file.filename)
+        if filename != '':
+            file_ext = os.path.splitext(filename)[1]
+            if file_ext not in UPLOAD_EXTENSIONS:  # disallowed extensions to be fixed!
+                abort(400)
+            uploaded_file.save(os.path.join(UPLOAD_PATH, filename))  # saves image to folder
+            image = UPLOAD_PATH + '/' + filename  #
+            current_user.image = image
+
+
+        print("mehh" + current_user.first_name + current_user.last_name)
+        try:
+            db.session.commit()
+            return redirect(url_for('user.account'))
+        except:
+            flash("Error!  Looks like there was a problem...try again!")
+    elif request.method == 'GET':
+        print(current_user.id)
+        form.first_name.data = current_user.first_name
+        form.last_name.data = current_user.last_name
+        form.email.data = current_user.email
+        form.dob.data = current_user.dob
+        db.session.commit()
+        print("hello "+ current_user.first_name + current_user.last_name )
+
+
+    return render_template('Settings.html', form = form)
+
 
 #userDash page
 @auth.route('/userDash') # define userdash
@@ -142,7 +179,6 @@ def account():
 def userDash():
 
     return render_template('userDash.html')
-
 
 
 @auth.route('/logout') # define logout path

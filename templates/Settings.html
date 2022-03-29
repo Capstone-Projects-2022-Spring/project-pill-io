@@ -12,60 +12,121 @@
 </head>
 
 <body>
+    <!-- {% with messages = get_flashed_messages() %}
+           {% if messages %}
+               <div class="notification is-danger">
+                   {{ messages[0] }}
+               </div>
+           {% endif %}
+     {% endwith %}
+-->
     <script type="text/javascript"
         src="https://temple-cis-projects-in-cs.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/-9zew5j/b/7/c95134bc67d3a521bb3f4331beb9b804/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=1d3a21b2"></script>
 
     <div class ="container">
+        <form method="POST" action="/account" enctype="multipart/form-data">
+
+           <div class="header">
+             <h1 style="font-size:40px;">Account Details</h1>
+
+           </div>
+
+            <div>
+
+               <label for ="Picture">
+
+                   <img src="{{current_user.image}}" alt="Your Uploaded Picture" width="240" height="240">
+               </label>
+
+           </div>
+
+           <div class="row">
+               <label for="realname">
+                   Your First Name Is: {{current_user.first_name}}
+               </label>
+
+           </div>
+
+           <div class="row">
+               <label for = "Username">
+               Your Last Name Is: {{current_user.last_name}}</label>
+
+           </div>
+
+           <div class="row">
+               <label for = "Emailaddress">
+               Your Email Address Is:  {{current_user.email}} </label>
+
+           </div>
+    <!--
+           <div class="row">
+               <label for = "Password">
+               Your Password is: {{current_user.password}}
+               </label>
+
+           </div>
+    -->
+            <div class="row">
+               <label for = "DOB">
+               Your DOB is: {{current_user.dob}}
+               </label>
+
+           </div>
+
       <form>
-       <div class="header">
-           <h1>Account Details</h1>
-       </div>
 
-        <div>
+    <br/>
 
-           <label for ="Picture">
+      <h2 style="font-size:40px;">Update your account here</h2>
 
-               <img src="{{current_user.image}}" alt="Your Uploaded Picture" width="240" height="240">
-           </label>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+          <div class="col-5">
 
-       </div>
+          </div>
+              <div class="col-sm-12 col-md-7">
+                <form method="POST" action="">
+                  {{ form.hidden_tag() }}
 
-       <div class="row">
-           <label for="realname">
-               Your First Name Is: {{current_user.first_name}}
-           </label>
+                  <div class="form-group">
+                    <label class="small mb-0">Change Your First Name: </label>
+                    {{ form.first_name(class="form-control") }}
+                  </div>
 
-       </div>
+                  <div class="form-group">
+                    <label class="small mb-0">Change Your Last Name: </label>
+                    {{ form.last_name(class="form-control") }}
+                  </div>
 
-       <div class="row">
-           <label for = "Username">
-           Your Last Name Is: {{current_user.last_name}}</label>
+                  <div class="form-group" ;>
+                    <label class="small mb-0">Change Your DoB: </label>
+                    {{ form.dob(class="form-control") }}
+                  </div>
 
-       </div>
+                  <div class="form-group">
+                    <label class="small mb-0">Change Your Email: </label>
+                    {{ form.email(class="form-control") }}
+                  </div>
 
-       <div class="row">
-           <label for = "Emailaddress">
-           Your Email Address Is:  {{current_user.email}} </label>
+                  <label>Upload New PROFILE Photo:</label>
+                  <form method="POST" action="" enctype="multipart/form-data">
+                     <p><input type="file" name="image"></p>
+                  </form>
 
-       </div>
-<!--
-       <div class="row">
-           <label for = "Password">
-           Your Password is: {{current_user.password}}
-           </label>
 
-       </div>
--->
-        <div class="row">
-           <label for = "DOB">
-           Your DOB is: {{current_user.dob}}
-           </label>
+                  <input type="submit" value="Submit" style="height:50px; width:100px ;color:White ; background-color:Black; font-family: 'Orator Std'">
 
-       </div>
+                </form>
+              </div>
+          </div>
+          </div>
+        </div>
+    </div>
 
-      <form>
-   </div>
+
 </body>
+
+
 
 
 
