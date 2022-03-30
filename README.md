@@ -56,7 +56,8 @@ Test 2:
       - Click Login on the navbar
       - Enter your email in the field marked "Your Email"
       - Enter your password in the field marked "Your Password", the password is case sensitive as usual
-      - Check the checkbox marked "Remember me" if you wish for the website/browser to save your cookies and leave you logged into account when you visit the website again
+      - Check the checkbox marked "Remember me" if you wish for the website/browser to save your cookies
+        and leave you logged into account when you visit the website again
       - Press the Login Button at the bottom of the form
     
     Expected Results:
@@ -88,7 +89,8 @@ Test 3:
       - Click the logout button on top right
       
     Expected Results:
-      - The user should be able to see the logout button when signed in. After the button is clicked, the website should take the user to the homepage / login screen
+      - The user should be able to see the logout button when signed in. After the button is clicked, the website
+        should take the user to the homepage / login screen
       
  Test 5:
    Using Webcam:
@@ -100,29 +102,96 @@ Test 3:
       - Click Take Snapshot
       
     Expected Results:
-      - The user should be able to capture their face after turning on their webcam and clicking the take snapshot button. (Use Google Chrome for best results)
+      - The user should be able to capture their face after turning on their webcam and clicking the take
+        snapshot button. (Use Google Chrome for best results)
     
+# Release v2.0.0 (SECOND MILESTONE DEMO)
 !! MILESTONE DEMO 2 !!
 
-Test 1:
-   (test):
-    
-    Actions/Steps:
-      - 
-      - 
-      
-    Expected Results:
-      - 
+## Release Notes ##
 
-Test 2:
-   (test):
+What's Changed:
+      - Merge Pi 119 implement user login data retrieval functionality into Main by @mishagolikov in #16
+      - Create userDash board without banner by @t-harun in #17
+      - Pi 136 update settings UI by @tuh00755 in #18
+      - Improved UI Look by @tuh00755 in #19
+      - Issue Collector by @tuh00755 in #21
+      - Added banner with button for scan by @t-harun in #22
+      - Pi 134 fix hello username issue in profile page by @t-harun in #23
+      - Merge 134 - Fixed corrupt DB file, now fully working into main by @mishagolikov in #24
+      - Add files via upload by @AnyaMin in #25
+      - Settings merge conflict Resolved by @Ethanterrel in #27
+      - Pi 139 implement medication schedule function in user dash board by @t-harun in #29
+      - Pi 140 reformat website navigation by @t-harun in #28
+      - Merge 141 - Medform and MedList into main by @mishagolikov in #30
+      - Merge Pi 141 add pill dispensing related fields to database and add fields to related forms into main branch by @mishagolikov in #32
+
+
+## How to create an account and log in
+
+  Creating an Account:
     
     Actions/Steps:
-      - 
-      - 
+      - Click Sign Up on the navbar
+      - Enter Username (it has to be an email)
+      - Enter your first name 
+      - Enter your last name
+      - Enter your preferred Password 
+      - Enter your Date of Birth
+      - Enter a picture of your face (THIS STEP IS REQUIRED & {'.jpg', '.png', '.gif'} FORMATS ONLY)
+          - Use different pictures since or the database will throw an error if the pic isnt unique
+          - it will later be used as your Profile Picture and for facial recognition
+      - Press the Sign Up Button at the bottom of the form
+    
+    Expected Results:
+      - The user is able to Sign up without any problem and the system will save the user's details onto the db. 
+      - User will see an "Account created" confirmation popup
+
+  Logging into an Account :
+    
+    Actions/Steps:
+      - Click Login on the navbar
+      - Enter your email in the field marked "Your Email"
+      - Enter your password in the field marked "Your Password", the password is case sensitive as usual
+      - Check the checkbox marked "Remember me" if you wish for the website/browser to save your cookies
+        and leave you logged into account when you visit the website again
+      - Press the Login Button at the bottom of the form
+    
+    Expected Results:
+      - The user is able to login into their already existing account with no problems, where
+      - The user will see the "Medication Form" page in front of them, which is marked by the "/profile" page identifier in the URL
+      - If the user checked the "Remember me" checkbox, they are able to close the website, reopen it, and still be logged in.
+      - If the user did not check the "Remember me" checkbox, they will be required to login again when they close and reopen the website.
+
+## User Acceptance Tests
+
+Test 1:
+   (Changing / Updating your DoB):
+    
+    Actions/Steps:
+      - Login using your credentials
+      - Click on "Account" on the navbar up top
+      - Scroll down to the bottom to where it says "Change DoB"
+      - Enter your new DoB in the same format as it previously was
+      - Press Submit and you will see your updated DoB
       
     Expected Results:
-      - 
+      - Upon successfully changing DoB, the user should see his updated DoB on the settings page
+      
+Test 2:
+   (Changing / Uploading Your email):
+    
+    Actions/Steps:
+      - Login using your credentials
+      - Click on "Account" on the navbar up top
+      - Scroll down to the bottom to where it says "Change your email"
+      - Enter your new email
+      - Press Submit and you will see your updated email
+      
+    Expected Results:
+      - Upon successfully changing the email, the user should see his or her updated email in the 
+        settings page and the user will not be able to login back into that account with that credentials.
+      
       
 Test 3:
    (Changing / Uploading a new profile Pic):
@@ -131,39 +200,71 @@ Test 3:
       - Login using your credentials
       - Click on "Account" on the navbar up top
       - Scroll down to the bottom to where it says "Upload New PROFILE Photo"
+      - File format has to be one of these {'.jpg', '.png', '.gif'}. Anything else will throw an error 
+        or crash the website
       - Upload your new Picture
-      - Scrol up to the top of the page and youll see your updated/new picture
+      - Scroll up to the top of the page and youll see your updated/new picture
       
     Expected Results:
-      - Upon successfully uploading the pic, the user should see his or her updated profile pic (240pxx240px) in the settings page
-      
-      
+      - Upon successfully uploading the pic, the user should see his or her updated profile pic (240pxx240px)
+        in the settings page
+
 Test 4:
-   (test):
+(Changing / Updating a new First/Last name):
     
     Actions/Steps:
-      - 
-      - 
+      - Login using your credentials
+      - Click on "Account" on the navbar up top
+      - Scroll down to the bottom where it says change your First Name
+      - Scroll down to the bottom where it says change your Last Name
+      - Enter your new First Name and Last Name
+      - Press Submit and you will see your updated First and Last Name
       
     Expected Results:
-      - 
+      - Upon successfully submitting, the user should see his updated First and Last name assoicated with his account
+      
 Test 5:
-   (test):
-    
+(Entering/Submitting a new Medication/Prescription):
+
     Actions/Steps:
-      - 
-      - 
+      - Login using your credentials
+      - Click on "Medform" on the navbar up top
+      - Scroll down and click on the "+" button at the bottom of the form to add another form
+      - Fill out the required information for each medication form (two medications/two forms)
+      - For this release, each medication name and class must be unique and must not be 
+        already existing duplicates
+      - Furthermore, the dosage field must be filled out in the format of "XXmg", instead of 
+        "XX" or "XX mg", where XX is the number of milligrams of the medication.
+      - Once you're done filling out the form, click submit at the bottom of the form
       
     Expected Results:
-      - 
+      - Upon successfully submitting, the page will refresh and the form will clear, marking that
+        your medication has been successfully submitted
       
-      
+Test 6:
+(Viewing one's Medication list):
+
+    Actions/Steps:
+      - Login using your credentials
+      - Click on "Dashboard" on the navbar up top
+      - Scroll down and locate the "Medication List" containter; press the "Get Medication"
+        button to retrieve a list of your medications
+      - Look at your newly visible medication list and make sure it matches the ones entered
+        in Test 6
+        
+    Expected Results:
+      - Upon successfully retrieving the list, one should see a table of their newly created 
+        medications from Test 6, with Name, Type, Dose, and Time columns visible in the table
       
 ## Source Code
 
-!!MILESTONE DEMO 1 !!
+!! MILESTONE DEMO 1 !!
+
 v1.0.0
 link : https://github.com/Capstone-Projects-2022-Spring/project-pill-io/releases/tag/v1.0.0
 
-!!MILESTONE DEMO 2 !!
+!! MILESTONE DEMO 2 !!
+
+v2.0.0
+https://github.com/Capstone-Projects-2022-Spring/project-pill-io/releases/tag/v2.0.0
 
