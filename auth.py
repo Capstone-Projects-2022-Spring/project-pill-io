@@ -177,8 +177,28 @@ def account():
 @auth.route('/userDash') # define userdash
 @login_required
 def userDash():
+    querySchedule = db.session.query(Medication)
 
-    return render_template('userDash.html')
+    querySchedule = querySchedule.outerjoin(
+        Prescription, Medication.medication_id == Prescription.medication_id)
+
+    querySchedule = querySchedule.filter(
+        Prescription.user_id == current_user.id)
+
+    queryScheduleMorning = querySchedule.filter(
+        Medication.medication_time == "Morning")
+    
+    queryScheduleNoon = querySchedule.filter(
+        Medication.medication_time == "Noon")
+    
+    queryScheduleNight = querySchedule.filter(
+        Medication.medication_time == "Night")
+
+    results = queryScheduleMorning.all()
+    results2 = queryScheduleNoon.all()
+    results3 = queryScheduleNight.all()
+    return render_template("userDash.html", queryScheduleMorning=results, queryScheduleNoon=results2, queryScheduleNight=results3)
+
 
 
 @auth.route('/logout') # define logout path
@@ -191,3 +211,34 @@ def logout(): #define the logout function
 @login_required
 def webcam():
     return render_template('webcam.html')
+
+@auth.route('/getmeds', methods=["GET", "POST"])
+@login_required
+def getmeds():
+    if request.method == 'GET':
+        query = db.session.query(Medication)
+
+        query = query.outerjoin(
+            Prescription, Medication.medication_id == Prescription.medication_id)
+
+        query = query.filter(Prescription.user_id == current_user.id)
+
+        results = query.all()
+
+        print(results)
+
+        return render_template("userDash.html", query=results)
+
+    else:
+        return render_template("userDash.html")
+    
+
+# @auth.route('/getSchedule1', methods=["GET", "POST"])
+# @login_required
+# def getSchedule1():
+#     if request.method == 'GET':
+        
+
+#     else:
+#         return render_template("userDash.html")
+>>>>>>> Stashed changes

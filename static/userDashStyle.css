@@ -94,6 +94,13 @@ body {
   box-shadow: var(--box-shadow);
   padding: 20px;
 }
+
+.page-content .grid > .dose{
+  height: 450px;
+}
+.page-content .grid > .medList{
+  height: 450px;
+}
  
 .page-content .grid > article:first-child,.page-content .grid > article:last-child{
   grid-column: 1 / -1;
