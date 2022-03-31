@@ -117,7 +117,7 @@ def submitmeds():
         new_medication = Medication(medication_name=medication_name, medication_type=medication_type,
                                     medication_dose=medication_dose, medication_time=medication_time)
 
-        flash('Medication created!')
+
         db.session.add(new_medication)
         db.session.commit()
 
@@ -137,7 +137,7 @@ def submitmeds():
             new_medication2 = Medication(medication_name=medication_name2, medication_type=medication_type2,
                                          medication_dose=medication_dose2, medication_time=medication_time2)
 
-            flash('Medication created!')
+
             db.session.add(new_medication2)
             db.session.commit()
 
@@ -156,7 +156,7 @@ def submitmeds():
             new_medication3 = Medication(medication_name=medication_name3, medication_type=medication_type3,
                                          medication_dose=medication_dose3, medication_time=medication_time3)
 
-            flash('Medication created!')
+
             db.session.add(new_medication3)
             db.session.commit()
 
