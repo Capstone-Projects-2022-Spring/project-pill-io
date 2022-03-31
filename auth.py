@@ -222,8 +222,28 @@ def account():
 @auth.route('/userDash')  # define userdash
 @login_required
 def userDash():
+    querySchedule = db.session.query(Medication)
 
-    return render_template('userDash.html')
+    querySchedule = querySchedule.outerjoin(
+        Prescription, Medication.medication_id == Prescription.medication_id)
+
+    querySchedule = querySchedule.filter(
+        Prescription.user_id == current_user.id)
+
+    queryScheduleMorning = querySchedule.filter(
+        Medication.medication_time == "Morning")
+    
+    queryScheduleNoon = querySchedule.filter(
+        Medication.medication_time == "Noon")
+    
+    queryScheduleNight = querySchedule.filter(
+        Medication.medication_time == "Night")
+
+    results = queryScheduleMorning.all()
+    results2 = queryScheduleNoon.all()
+    results3 = queryScheduleNight.all()
+    return render_template("userDash.html", queryScheduleMorning=results, queryScheduleNoon=results2, queryScheduleNight=results3)
+
 
 
 @auth.route('/logout')  # define logout path
@@ -237,7 +257,6 @@ def logout():  # define the logout function
 @login_required
 def webcam():
     return render_template('webcam.html')
-
 
 @auth.route('/getmeds', methods=["GET", "POST"])
 @login_required
