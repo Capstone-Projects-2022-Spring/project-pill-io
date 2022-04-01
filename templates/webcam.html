@@ -1,37 +1,48 @@
-{% extends "base.html" %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
-<html>
-  <head> </head>
-  <body>
-    <p>
-      <button onclick="startWebcam();">Start WebCam</button>
-      <button onclick="getCurrentFrame();">Take Snapshot</button>
-    </p>
-    <!-- <video id="video" hidden autoplay></video> -->
-    <!-- <canvas id="myCanvas" hidden></canvas> -->
-    <img id="my-data-uri" src="" />
-  </body>
-  <script src="/static/webcam.js"></script>
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename = 'webcam.css') }}"
-  />
-  <body class="content" , style="background-color: blue">
-    <div class="wrapper">
-      <div id="form-content">
-        <div class="logo">
-          <img
-            src="https://cdn.discordapp.com/attachments/950125055898185758/950951813530673182/Logo.png"
-            id="logo"
-            alt="User Logo"
-          />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/webcam.css" rel="stylesheet" />
+    <title>Camera</title>
+</head>
+
+<body class="content" , style="background-color: blue">
+
+    <div class="video-container">
+        <div class="frame" style="overflow: hidden; height: 100%;">
+            <video style="height: 90%;" autoplay></video>
         </div>
-        <font face="Arial" size="15px" color="#FF7A59">
-          Waiting to Scan and Match Face, click the Start Webcam Button.</font
-        >
-      </div>
     </div>
-  </body>
-</html>
+    <div class="filter-screen-parent">
 
-{% endblock %}
+    </div>
+
+
+
+    <div id="record-video"><img src="https://img.icons8.com/flat-round/60/000000/record.png"/></div>
+
+    <div id="click-picture"><img src="https://img.icons8.com/ultraviolet/60/000000/camera.png" /></div>
+
+    <div class="zoom">
+        <button class="zoom-in">zoom in</button>
+        <button class="zoom-out">zoom out</button>
+    </div>
+      <div class="Gallery">
+        <button class="Gallery">Click the Gallery Button Below to Download/Delete Pic</button>
+    </div>
+
+     <div class="HowToClick">
+        <button class="Camera Click here">Click the Camera Button Below to Snap Pic</button>
+    </div>
+
+    <div class="show-gallery"></div>
+    </div>
+    
+    <script src="/static/dbScript.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
