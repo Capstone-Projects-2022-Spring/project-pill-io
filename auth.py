@@ -9,6 +9,9 @@ import sys
 from models import User, UserForm, Medication, Prescription
 from flask_login import login_user, logout_user, login_required, current_user
 from __init__ import db
+from datetime import datetime
+import calendar
+from datetime import date
 
 MAX_CONTENT_LENGTH = 1024 * 1024
 UPLOAD_EXTENSIONS = ['.jpg', '.png', '.gif']
@@ -244,7 +247,32 @@ def userDash():
     results = queryScheduleMorning.all()
     results2 = queryScheduleNoon.all()
     results3 = queryScheduleNight.all()
-    return render_template("userDash.html", queryScheduleMorning=results, queryScheduleNoon=results2, queryScheduleNight=results3)
+    
+    now = datetime.now().hour
+    print(now);
+    morning = datetime.now().hour
+    morning = 6
+    noon = datetime.now().hour
+    noon = 12
+    night = datetime.now().hour
+    night = 18
+    print(results)
+    print("NEXT")
+    print(queryScheduleMorning)
+    if now > morning and now < noon:
+        alert = "MORNING PILLS:"
+        for x in results:
+            alert += ' | ' + x.medication_name
+    elif now > noon and now < night:
+        alert= "NOON PILLS:"
+        for x in results2:
+            alert += ' | ' + x.medication_name
+    elif now > night and now < morning:
+        alert = "NIGHT PILLS:"
+        for x in results3:
+            alert += ' | ' + x.medication_name
+    alert += ' |'
+    return render_template("userDash.html", queryScheduleMorning=results, queryScheduleNoon=results2, queryScheduleNight=results3, alert = alert)
 
 
 
