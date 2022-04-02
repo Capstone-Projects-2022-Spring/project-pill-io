@@ -43,7 +43,8 @@ def login():  # define login page fucntion
         # if the above check passes, then we know the user has the right credentials
 
         login_user(user, remember=remember)
-        return render_template('userDash.html')
+        return userDash()
+        
 
 
 @auth.route('/signup', methods=['GET', 'POST'])  # we define the sign up path
@@ -172,7 +173,8 @@ def submitmeds():
         #     'No result found'
         # else:
         #     print(result)
-        return render_template('medform.html')
+        notif = "Success"
+        return render_template('medform.html', notif = notif)
         # return redirect(url_for('main.profile'))
 
 
