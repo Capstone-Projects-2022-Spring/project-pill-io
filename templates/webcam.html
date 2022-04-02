@@ -1,48 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+   <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+   <title>Online Webcam</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="icon" href="camera.png">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/static/webcam.css" rel="stylesheet" />
-    <title>Camera</title>
-</head>
+<div class = "a">
+    <h2>Click <b>Capture</b> to take a pic!</h2>
+</div>
 
-<body class="content" , style="background-color: blue">
 
-    <div class="video-container">
-        <div class="frame" style="overflow: hidden; height: 100%;">
-            <video style="height: 90%;" autoplay></video>
+<div class = "webcam">
+<body>
+<video id="webcam" autoplay playsinline width="500" height="375" style="float: left; margin-left: 170px;"></video>
+<canvas id="canvas" class="d-none"></canvas>
+<div id="images"></div>
+
+  <body class="content" , style="background-color: rgba(102,124,225,255)">
+    <div class="wrapper">
+      <div id="form-content">
+        <div class="logo">
+          <img
+            src="https://cdn.discordapp.com/attachments/950125055898185758/950951813530673182/Logo.png"
+            id="logo"
+            alt="User Logo"
+          />
         </div>
+        <font face="Arial" size="15px" color="#FF7A59">
+         Click to Download to Download your Picture!.</font
+        >
+      </div>
     </div>
-    <div class="filter-screen-parent">
+  </body>
 
-    </div>
+<script>
 
+const webcamElement = document.getElementById('webcam');
+const canvasElement = document.getElementById('canvas');
+const snapSoundElement = document.getElementById('snapSound');
+const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement);
 
+function take(){
+  let picture = webcam.snap();
+  document.querySelector('#download-photo').href = picture;
 
-    <div id="record-video"><img src="https://img.icons8.com/flat-round/60/000000/record.png"/></div>
+  document.getElementById('images').innerHTML = "<img src=\"" + picture + "\">";
+  //return picture;
+}
 
-    <div id="click-picture"><img src="https://img.icons8.com/ultraviolet/60/000000/camera.png" /></div>
+</script>
+<script>
+    webcam.start();
+</script>
+</div>
 
-    <div class="zoom">
-        <button class="zoom-in">zoom in</button>
-        <button class="zoom-out">zoom out</button>
-    </div>
-      <div class="Gallery">
-        <button class="Gallery">Click the Gallery Button Below to Download/Delete Pic</button>
-    </div>
+<button type="button" onclick="webcam.start()" style="margin-top: 10px; margin-top: 5px;" class="btn btn-success">Start Webcam</button>
+<button type="button" onclick="take()" style="margin-top: 10px; margin-left: 20px; margin-bottom: 5px;" class="btn btn-warning"><b>Capture</b></button>
+<button type="button" onclick="webcam.stop()" style="margin-top: 10px; margin-left: 20px; margin-top: 5px;" class="btn btn-danger">Stop Webcam</button>
 
-     <div class="HowToClick">
-        <button class="Camera Click here">Click the Camera Button Below to Snap Pic</button>
-    </div>
-
-    <div class="show-gallery"></div>
-    </div>
-    
-    <script src="/static/dbScript.js"></script>
-    <script src="/static/script.js"></script>
-</body>
+<div class = "photo" width="100%" height ="100%">
+  <h4>Click <b>Download</b> to download your image</h4>
+  <a href="#" id="download-photo" download="online_webcam_image.png" target="_blank" title="Save Photo" class="btn btn-light"><b>Download</b></a>
+</div>
 
 </html>
