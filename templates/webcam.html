@@ -1,4 +1,6 @@
-<!doctype html>
+{% extends "base.html" %}
+
+{% block content %}
 <html lang="en">
    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
@@ -54,7 +56,6 @@ function take(){
 <script>
     webcam.start();
 </script>
-</div>
 
 <button type="button" onclick="webcam.start()" style="margin-top: 10px; margin-top: 5px;" class="btn btn-success">Start Webcam</button>
 <button type="button" onclick="take()" style="margin-top: 10px; margin-left: 20px; margin-bottom: 5px;" class="btn btn-warning"><b>Capture</b></button>
@@ -66,3 +67,4 @@ function take(){
 </div>
 
 </html>
+{% endblock %}
