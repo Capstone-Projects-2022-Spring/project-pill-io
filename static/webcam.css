@@ -1,64 +1,113 @@
 body {
-  font-family: "Poppins", sans-serif;
-  height: 100vh;
+    margin: 0;
+    overflow: hidden;
 }
 
-/**************** content css start ****************/
-.content {
-  height: 1000px;
-  position: relative;
-  z-index: 1;
-
+* {
+    box-sizing: border-box;
 }
 
-
-h2 {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  display:inline-block;
-  margin: 40px 8px 10px 8px;
-  color: #cccccc;
+.video-container {
+    /* position: fixed; */
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
 }
 
 
-
-/*   */
-
-.wrapper {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  min-height: 70%;
-  padding: 20px;
+#click-picture {
+    position: fixed;
+    right: 4rem;
+    top: 50vh;
+    cursor: pointer;
 }
 
-#form-content {
-  border-radius: 10px;
-  background: #fff;
-  padding: 30px;
-  width: 100%;
-  max-width: 450px;
-  position: relative;
-  padding: 0px;
-  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-  text-align: center;
+.filter-container {
+    border: 1px solid white;
+    position: fixed;
+    top: 20vh;
+    left: 5vw;
+    height: 60vh;
+    width: 6vw;
 }
 
-#form-footer {
-  background-color: #f6f6f6;
-  border-top: 1px solid #dce8f1;
-  padding: 25px;
-  text-align: center;
-  -webkit-border-radius: 0 0 10px 10px;
-  border-radius: 0 0 10px 10px;
+.filter {
+    border: 1px solid white;
+    height: 20%;
+
+}
+
+.filter-screen-parent {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0
+}
+
+.zoom {
+    position: absolute;
+    bottom: 30px;
+    left: 50vw;
 }
 
 
-h2.active {
-  color: #0d0d0d;
-  border-bottom: 2px solid #5fbae9;
+.HowToClick{
+    position: absolute;
+    left: 1200px;
+    top: 300px;
+    background-color:#0a0a23;
+}
+.Gallery{
+    position: absolute;
+    left: 610px;
+    top: 240px;
+
+}
+
+
+
+.modal {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    color: black;
+    background-color: white;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.show-gallery {
+    position: fixed;
+    height: 90px;
+    width: 90px;
+    bottom: 10vh;
+    right: 6vw;
+    background-color: rgba(102,124,225,255);
+    cursor: pointer;
+}
+
+
+
+.gallery {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    height: calc(100vh - 50px);
+}
+
+.image img, .video video {
+    height: 31vh;
+    width: 21vw;
+    margin-top: 10px;
+    border: 2px solid black;
+}
+
+.title {
+    margin-bottom: 10px;
 }
