@@ -198,11 +198,8 @@ def submitmeds():
                 return render_template('medform.html', notifError=notifError)
             new_medication3 = Medication(medication_name=medication_name3, medication_type=medication_type3,
                                          medication_dose=medication_dose3, medication_time=medication_time3)
-
-
             db.session.add(new_medication3)
             db.session.commit()
-
             new_prescription3 = Prescription(
                 user_id=current_user.id, medication_id=new_medication3.medication_id)
             db.session.add(new_prescription3)
@@ -287,6 +284,15 @@ def userDash():
     results2 = queryScheduleNoon.all()
     results3 = queryScheduleNight.all()
     
+    queryList = db.session.query(Medication)
+
+    queryList = queryList.outerjoin(
+        Prescription, Medication.medication_id == Prescription.medication_id)
+
+    queryList = queryList.filter(Prescription.user_id == current_user.id)
+
+    resultList = queryList.all()
+    
     now = datetime.now().hour
     print(now);
     morning = datetime.now().hour
@@ -298,6 +304,7 @@ def userDash():
     print(results)
     print("NEXT")
     print(queryScheduleMorning)
+    alert =''
     if now > morning and now < noon:
         alert = "MORNING PILLS:"
         for x in results:
@@ -306,12 +313,13 @@ def userDash():
         alert= "NOON PILLS:"
         for x in results2:
             alert += ' | ' + x.medication_name
-    elif now > night and now < morning:
+    else:
         alert = "NIGHT PILLS:"
         for x in results3:
             alert += ' | ' + x.medication_name
     alert += ' |'
-    return render_template("userDash.html", queryScheduleMorning=results, queryScheduleNoon=results2, queryScheduleNight=results3, alert = alert)
+
+    return render_template("userDash.html", queryScheduleMorning=results, queryScheduleNoon=results2, queryScheduleNight=results3, queryList=resultList, alert=alert)
 
 
 
@@ -319,8 +327,8 @@ def userDash():
 @login_required
 def logout():  # define the logout function
     to_say = ("Good Bye" + current_user.first_name)
-    logout_user()
     text_to_speech_1(to_say)
+    logout_user()
     return redirect(url_for('main.index'))
 
 
