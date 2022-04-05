@@ -1,3 +1,5 @@
+import time
+
 import pyttsx3
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
@@ -42,3 +44,6 @@ def text_to_speech_1(text):
 
     engine.say(text)
     engine.runAndWait()
+
+    time.sleep(1)
+    engine.endLoop()
