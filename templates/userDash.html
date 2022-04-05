@@ -25,6 +25,11 @@
   </head>
   <body>
     <section class="page-content">
+        {% if alert %}
+          <div class="alert alert-danger center" role="alert">
+            {{ alert }}
+          </div>
+        {% endif %}
       <section class="grid">
         <article class="banner">
           <div class="container overlay">

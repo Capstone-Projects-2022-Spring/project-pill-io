@@ -9,7 +9,12 @@ import sys
 
 from models import User, UserForm, Medication, Prescription
 from flask_login import login_user, logout_user, login_required, current_user
+
 from __init__ import db, text_to_speech_1
+from datetime import datetime
+import calendar
+from datetime import date
+
 
 MAX_CONTENT_LENGTH = 1024 * 1024
 UPLOAD_EXTENSIONS = ['.jpg', '.png', '.gif']
@@ -46,7 +51,8 @@ def login():  # define login page fucntion
         login_user(user, remember=remember)
         to_say = ("hello" + current_user.first_name)
         text_to_speech_1(to_say)
-        return render_template('userDash.html')
+        return userDash()
+
 
 
 @auth.route('/signup', methods=['GET', 'POST'])  # we define the sign up path
@@ -175,7 +181,8 @@ def submitmeds():
         #     'No result found'
         # else:
         #     print(result)
-        return render_template('medform.html')
+        notif = "Success"
+        return render_template('medform.html', notif = notif)
         # return redirect(url_for('main.profile'))
 
 
@@ -245,7 +252,32 @@ def userDash():
     results = queryScheduleMorning.all()
     results2 = queryScheduleNoon.all()
     results3 = queryScheduleNight.all()
-    return render_template("userDash.html", queryScheduleMorning=results, queryScheduleNoon=results2, queryScheduleNight=results3)
+    
+    now = datetime.now().hour
+    print(now);
+    morning = datetime.now().hour
+    morning = 6
+    noon = datetime.now().hour
+    noon = 12
+    night = datetime.now().hour
+    night = 18
+    print(results)
+    print("NEXT")
+    print(queryScheduleMorning)
+    if now > morning and now < noon:
+        alert = "MORNING PILLS:"
+        for x in results:
+            alert += ' | ' + x.medication_name
+    elif now > noon and now < night:
+        alert= "NOON PILLS:"
+        for x in results2:
+            alert += ' | ' + x.medication_name
+    elif now > night and now < morning:
+        alert = "NIGHT PILLS:"
+        for x in results3:
+            alert += ' | ' + x.medication_name
+    alert += ' |'
+    return render_template("userDash.html", queryScheduleMorning=results, queryScheduleNoon=results2, queryScheduleNight=results3, alert = alert)
 
 
 

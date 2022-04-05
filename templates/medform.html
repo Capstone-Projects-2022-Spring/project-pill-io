@@ -27,6 +27,11 @@
     <div class="containerMed">
         <div class="medForm">
         <h3>Medication Form</h3>
+        {% if notif %}
+          <div class="alert alert-success" role="alert">
+            {{ notif }}
+          </div>
+        {% endif %}
         <div>
           <div >
             <h5>
