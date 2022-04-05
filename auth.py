@@ -251,7 +251,9 @@ def userDash():
 @auth.route('/logout')  # define logout path
 @login_required
 def logout():  # define the logout function
+    to_say = ("Good Bye" + current_user.first_name)
     logout_user()
+    text_to_speech_1(to_say)
     return redirect(url_for('main.index'))
 
 
