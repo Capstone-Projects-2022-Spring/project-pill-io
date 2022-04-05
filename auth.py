@@ -308,16 +308,16 @@ def userDash():
     if now > morning and now < noon:
         alert = "MORNING PILLS:"
         for x in results:
-            alert += ' | ' + x.medication_name
+            alert += ' 💊 ' + x.medication_name
     elif now > noon and now < night:
         alert= "NOON PILLS:"
         for x in results2:
-            alert += ' | ' + x.medication_name
+            alert += ' 💊 ' + x.medication_name
     else:
         alert = "NIGHT PILLS:"
         for x in results3:
-            alert += ' | ' + x.medication_name
-    alert += ' |'
+            alert += ' 💊 ' + x.medication_name
+    alert += ' 💊'
 
     return render_template("userDash.html", queryScheduleMorning=results, queryScheduleNoon=results2, queryScheduleNight=results3, queryList=resultList, alert=alert)
 
