@@ -1,3 +1,4 @@
+import pyttsx3
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
@@ -29,3 +30,15 @@ def create_app():
     from main import main as main_blueprint
     app.register_blueprint(main_blueprint)
     return app
+
+def text_to_speech_1(text):
+    code = 1
+    engine = pyttsx3.init()
+    # Setting up voice rate
+    engine.setProperty('rate', 175)
+
+    # Setting up volume level  between 0 and 1
+    engine.setProperty('volume', 0.8)
+
+    engine.say(text)
+    engine.runAndWait()

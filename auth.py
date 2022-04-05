@@ -8,7 +8,7 @@ import sys
 
 from models import User, UserForm, Medication, Prescription
 from flask_login import login_user, logout_user, login_required, current_user
-from __init__ import db
+from __init__ import db, text_to_speech_1
 
 MAX_CONTENT_LENGTH = 1024 * 1024
 UPLOAD_EXTENSIONS = ['.jpg', '.png', '.gif']
@@ -43,6 +43,8 @@ def login():  # define login page fucntion
         # if the above check passes, then we know the user has the right credentials
 
         login_user(user, remember=remember)
+        to_say = ("hello" + current_user.first_name)
+        text_to_speech_1(to_say)
         return render_template('userDash.html')
 
 
