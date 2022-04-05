@@ -1,4 +1,5 @@
 import os
+from queue import Empty
 import time
 
 from flask import Blueprint, render_template, redirect, url_for, request, flash, current_app, abort, logging, globals
@@ -120,6 +121,17 @@ def submitmeds():
         medication_dose = request.form.get('medication_dose')
         medication_time = request.form.get('medication_time')
 
+            notifError = "No Medication Name"
+            return render_template('medform.html', notifError=notifError)
+        elif(medication_type == ''):
+            notifError = "No Medication Type"
+            return render_template('medform.html', notifError=notifError)
+        elif(medication_dose == ''):
+            notifError = "No Medication Dose"
+            return render_template('medform.html', notifError=notifError)
+        elif(medication_time is None):
+            notifError = "No Medication Time"
+            return render_template('medform.html', notifError=notifError)
         # new_user = User(medication_name =email, first_name=first_name, last_name=last_name,
         #                 password=generate_password_hash(password, method='sha256'), dob=dob, image=image)
 
