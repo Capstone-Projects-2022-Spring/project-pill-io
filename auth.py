@@ -120,7 +120,7 @@ def submitmeds():
         medication_type = request.form.get('medication_type')
         medication_dose = request.form.get('medication_dose')
         medication_time = request.form.get('medication_time')
-
+        if(medication_name == ''):
             notifError = "No Medication Name"
             return render_template('medform.html', notifError=notifError)
         elif(medication_type == ''):
@@ -154,7 +154,18 @@ def submitmeds():
             medication_type2 = request.form.get('medication_type2')
             medication_dose2 = request.form.get('medication_dose2')
             medication_time2 = request.form.get('medication_time2')
-
+            if(medication_name2 == ''):
+                notifError = "No Medication Name 2"
+                return render_template('medform.html', notifError=notifError)
+            elif(medication_type2 == ''):
+                notifError = "No Medication Type 2"
+                return render_template('medform.html', notifError=notifError)
+            elif(medication_dose2 == ''):
+                notifError = "No Medication Dose 2"
+                return render_template('medform.html', notifError=notifError)
+            elif(medication_time2 is None):
+                notifError = "No Medication Time 2"
+                return render_template('medform.html', notifError=notifError)
             new_medication2 = Medication(medication_name=medication_name2, medication_type=medication_type2,
                                          medication_dose=medication_dose2, medication_time=medication_time2)
 
@@ -173,7 +184,18 @@ def submitmeds():
             medication_type3 = request.form.get('medication_type3')
             medication_dose3 = request.form.get('medication_dose3')
             medication_time3 = request.form.get('medication_time3')
-
+            if(medication_name3 == ''):
+                notifError = "No Medication Name 3"
+                return render_template('medform.html', notifError=notifError)
+            elif(medication_type3 == ''):
+                notifError = "No Medication Type 3"
+                return render_template('medform.html', notifError=notifError)
+            elif(medication_dose3 == ''):
+                notifError = "No Medication Dose 3"
+                return render_template('medform.html', notifError=notifError)
+            elif(medication_time3 is None):
+                notifError = "No Medication Time 3"
+                return render_template('medform.html', notifError=notifError)
             new_medication3 = Medication(medication_name=medication_name3, medication_type=medication_type3,
                                          medication_dose=medication_dose3, medication_time=medication_time3)
 
