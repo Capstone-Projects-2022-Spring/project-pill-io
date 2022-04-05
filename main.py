@@ -40,12 +40,20 @@ def help():
 def userDash():
     return render_template('userDash.html')
 
+def text_to_speech(text):
+    engine = pyttsx3.init()
+    engine.say(text)
+    engine.runAndWait()
+
 
 app = create_app() # we initialize our flask app using the __init__.py function
 if __name__ == '__main__':
+    #text_to_speech("hello what is up")
 
     db.create_all(app = create_app()) # create the SQLite database
     app.run(debug=True) # run the flask app on debug mode
+
+    text_to_speech("hello what is up")
     # user image upload directory and allowed image extensions and dimensions
     app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
     app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
