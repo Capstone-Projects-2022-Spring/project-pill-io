@@ -50,7 +50,7 @@ def login():  # define login page fucntion
 
         login_user(user, remember=remember)
         to_say = ("hello" + current_user.first_name)
-        text_to_speech_1(to_say)
+        #text_to_speech_1(to_say)
         return userDash()
 
 
@@ -264,6 +264,7 @@ def userDash():
     print(results)
     print("NEXT")
     print(queryScheduleMorning)
+    alert = ""
     if now > morning and now < noon:
         alert = "MORNING PILLS:"
         for x in results:
@@ -286,7 +287,7 @@ def userDash():
 def logout():  # define the logout function
     to_say = ("Good Bye" + current_user.first_name)
     logout_user()
-    text_to_speech_1(to_say)
+    #text_to_speech_1(to_say)
     return redirect(url_for('main.index'))
 
 

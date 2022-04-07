@@ -47,3 +47,4 @@ def text_to_speech_1(text):
 
     time.sleep(1)
     engine.endLoop()
+
