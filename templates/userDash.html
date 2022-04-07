@@ -93,15 +93,15 @@
           <h3 class="title">Medication List</h3>
           <br />
 
-            <form method="GET" action="/getmeds" enctype="multipart/form-data">
-            <table>
+<!--            <form method="GET" action="/getmeds" enctype="multipart/form-data">-->
+            <table style="">
                 <th>
                     <tr style="color: black; ">
 
-                        <th style="margin-left: 30px;">Name</th>
-                        <th style="margin-left: 30px;">Type</th>
-                        <th style="margin-left: 30px;">Dose</th>
-                        <th style="margin-left: 30px;">Time</th>
+                        <th style="margin-left: 30px;text-align: center;">Name</th>
+                        <th style="margin-left: 30px;text-align: center;">Type</th>
+                        <th style="margin-left: 30px;text-align: center;">Dose</th>
+                        <th style="margin-left: 30px;text-align: center;">Time</th>
 
                         {% for medication in query %}
                         <tr style="color: black;">
@@ -123,8 +123,18 @@
                 </th>
 
             </table>
-            <button class="button is-block is-info is-large is-fullwidth">Get Medication</button>
-            </form>
+<!--            <button class="button is-block is-info is-large is-fullwidth">Get Medication</button>-->
+<!--            </form>-->
+
+<!--            <ul class="schedule-pill list-group" id="medList">-->
+<!--                {% for medication in query %}-->
+<!--                <li class="list-group-item">-->
+<!--                    {{medication.medication_name}}-->
+<!--                    {{medication.medication_type}}-->
+<!--                    {{medication.medication_dose}}-->
+<!--                </li>-->
+<!--                {% endfor %}-->
+<!--              </ul>-->
 
         </article>
         <article class="tutorial">
