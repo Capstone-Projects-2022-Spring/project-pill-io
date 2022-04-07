@@ -338,7 +338,6 @@ def logout():  # define the logout function
 
     logout_user()
     #text_to_speech_1(to_say)
-
     return redirect(url_for('main.index'))
 
 
