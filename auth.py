@@ -177,8 +177,10 @@ def submitmeds():
                 user_id=current_user.id, medication_id=new_medication2.medication_id)
             db.session.add(new_prescription2)
             db.session.commit()
+            print("Medication Form 2 Existence Test Success")
+            print("Medication Form 2 Database Entry Success")
         else:
-            print("Not Exist")
+            print("Medication Form 2 Existence Test Failed")
         if (request.form.get('medication_name3')):
             medication_name3 = request.form.get('medication_name3')
             medication_type3 = request.form.get('medication_type3')
@@ -204,8 +206,11 @@ def submitmeds():
                 user_id=current_user.id, medication_id=new_medication3.medication_id)
             db.session.add(new_prescription3)
             db.session.commit()
+            print("Medication Form 3 Existence Test Success")
+            print("Medication Form 3 Database Entry Success")
         else:
-            print("Not Exist")
+            print("Medication Form 2 Existence Test Failure")
+            print("Medication Form 2 Database Entry Failure")
         #
         # if not result:
         #     print
@@ -305,8 +310,8 @@ def userDash():
     print("NEXT")
     print(queryScheduleMorning)
 
-    alert =''
-
+    alert = "" # tandi, i added this because it wouldn't launch because alert wasn't declared
+    # since it sometimes never gets declared below
     if now > morning and now < noon:
         alert = "MORNING PILLS:"
         for x in results:
@@ -318,6 +323,7 @@ def userDash():
     else:
         alert = "NIGHT PILLS:"
         for x in results3:
+
             alert += ' 💊 ' + x.medication_name
     alert += ' 💊'
 
@@ -340,10 +346,10 @@ def logout():  # define the logout function
 def webcam():
     return render_template('webcam.html')
 
-@auth.route('/getmeds', methods=["GET", "POST"])
+@auth.route('/getmeds',methods=["GET", "POST"])
 @login_required
 def getmeds():
-    if request.method == 'GET':
+    # if request.method == 'GET':
         query = db.session.query(Medication)
 
         query = query.outerjoin(
@@ -355,7 +361,8 @@ def getmeds():
 
         print(results)
 
-        return render_template("userDash.html", query=results)
+        return render_template("userDash.html", query=query)
+    #
+    # else:
+    #     return render_template("userDash.html")
 
-    else:
-        return render_template("userDash.html")
