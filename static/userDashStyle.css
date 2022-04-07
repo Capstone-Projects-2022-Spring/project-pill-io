@@ -102,10 +102,10 @@ body {
 }
 
 .page-content .grid > .dose{
-  height: 450px;
+  height: 650px;
 }
 .page-content .grid > .medList{
-  height: 450px;
+  height: 650px;
 }
  
 .page-content .grid > article:first-child,.page-content .grid > article:last-child{
@@ -206,4 +206,10 @@ path{
   z-index: 2; 
   width: 50%; 
   height: 100%; 
+}
+.small{
+  font-size: 8px;
+  width: 50%;
+  padding: 2px !important; 
+  margin: 2px !important; 
 }

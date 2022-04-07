@@ -32,6 +32,11 @@
             {{ notif }}
           </div>
         {% endif %}
+        {% if notifError %}
+          <div class="alert alert-danger" role="alert">
+            {{ notifError }}
+          </div>
+        {% endif %}
         <div>
           <div >
             <h5>

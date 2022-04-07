@@ -93,48 +93,26 @@
           <h3 class="title">Medication List</h3>
           <br />
 
-<!--            <form method="GET" action="/getmeds" enctype="multipart/form-data">-->
-            <table style="">
-                <th>
-                    <tr style="color: black; ">
-
-                        <th style="margin-left: 30px;text-align: center;">Name</th>
-                        <th style="margin-left: 30px;text-align: center;">Type</th>
-                        <th style="margin-left: 30px;text-align: center;">Dose</th>
-                        <th style="margin-left: 30px;text-align: center;">Time</th>
-
-                        {% for medication in query %}
-                        <tr style="color: black;">
-                            <td>
-                                {{medication.medication_name}}
-                            </td>
-                            <td>
-                                {{medication.medication_type}}
-                            </td>
-                            <td>
-                                {{medication.medication_dose}}
-                            </td>
-                            <td>
-                                {{medication.medication_time}}
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tr>
-                </th>
-
-            </table>
-<!--            <button class="button is-block is-info is-large is-fullwidth">Get Medication</button>-->
-<!--            </form>-->
-
-<!--            <ul class="schedule-pill list-group" id="medList">-->
-<!--                {% for medication in query %}-->
-<!--                <li class="list-group-item">-->
-<!--                    {{medication.medication_name}}-->
-<!--                    {{medication.medication_type}}-->
-<!--                    {{medication.medication_dose}}-->
-<!--                </li>-->
-<!--                {% endfor %}-->
-<!--              </ul>-->
+          <table class="table small">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Dose</th>
+                <th scope="col">Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for medication in queryList %}
+              <tr>
+                <td>{{medication.medication_name}}</td>
+                <td>{{medication.medication_type}}</td>
+                <td>{{medication.medication_dose}}</td>
+                <td>{{medication.medication_time}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
 
         </article>
         <article class="tutorial">
