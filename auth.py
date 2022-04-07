@@ -1,4 +1,5 @@
 import os
+from queue import Empty
 import time
 
 from flask import Blueprint, render_template, redirect, url_for, request, flash, current_app, abort, logging, globals
@@ -119,7 +120,18 @@ def submitmeds():
         medication_type = request.form.get('medication_type')
         medication_dose = request.form.get('medication_dose')
         medication_time = request.form.get('medication_time')
-
+        if(medication_name == ''):
+            notifError = "No Medication Name"
+            return render_template('medform.html', notifError=notifError)
+        elif(medication_type == ''):
+            notifError = "No Medication Type"
+            return render_template('medform.html', notifError=notifError)
+        elif(medication_dose == ''):
+            notifError = "No Medication Dose"
+            return render_template('medform.html', notifError=notifError)
+        elif(medication_time is None):
+            notifError = "No Medication Time"
+            return render_template('medform.html', notifError=notifError)
         # new_user = User(medication_name =email, first_name=first_name, last_name=last_name,
         #                 password=generate_password_hash(password, method='sha256'), dob=dob, image=image)
 
@@ -142,7 +154,18 @@ def submitmeds():
             medication_type2 = request.form.get('medication_type2')
             medication_dose2 = request.form.get('medication_dose2')
             medication_time2 = request.form.get('medication_time2')
-
+            if(medication_name2 == ''):
+                notifError = "No Medication Name 2"
+                return render_template('medform.html', notifError=notifError)
+            elif(medication_type2 == ''):
+                notifError = "No Medication Type 2"
+                return render_template('medform.html', notifError=notifError)
+            elif(medication_dose2 == ''):
+                notifError = "No Medication Dose 2"
+                return render_template('medform.html', notifError=notifError)
+            elif(medication_time2 is None):
+                notifError = "No Medication Time 2"
+                return render_template('medform.html', notifError=notifError)
             new_medication2 = Medication(medication_name=medication_name2, medication_type=medication_type2,
                                          medication_dose=medication_dose2, medication_time=medication_time2)
 
@@ -161,14 +184,22 @@ def submitmeds():
             medication_type3 = request.form.get('medication_type3')
             medication_dose3 = request.form.get('medication_dose3')
             medication_time3 = request.form.get('medication_time3')
-
+            if(medication_name3 == ''):
+                notifError = "No Medication Name 3"
+                return render_template('medform.html', notifError=notifError)
+            elif(medication_type3 == ''):
+                notifError = "No Medication Type 3"
+                return render_template('medform.html', notifError=notifError)
+            elif(medication_dose3 == ''):
+                notifError = "No Medication Dose 3"
+                return render_template('medform.html', notifError=notifError)
+            elif(medication_time3 is None):
+                notifError = "No Medication Time 3"
+                return render_template('medform.html', notifError=notifError)
             new_medication3 = Medication(medication_name=medication_name3, medication_type=medication_type3,
                                          medication_dose=medication_dose3, medication_time=medication_time3)
-
-
             db.session.add(new_medication3)
             db.session.commit()
-
             new_prescription3 = Prescription(
                 user_id=current_user.id, medication_id=new_medication3.medication_id)
             db.session.add(new_prescription3)
@@ -253,6 +284,15 @@ def userDash():
     results2 = queryScheduleNoon.all()
     results3 = queryScheduleNight.all()
     
+    queryList = db.session.query(Medication)
+
+    queryList = queryList.outerjoin(
+        Prescription, Medication.medication_id == Prescription.medication_id)
+
+    queryList = queryList.filter(Prescription.user_id == current_user.id)
+
+    resultList = queryList.all()
+    
     now = datetime.now().hour
     print(now);
     morning = datetime.now().hour
@@ -264,21 +304,24 @@ def userDash():
     print(results)
     print("NEXT")
     print(queryScheduleMorning)
-    alert = ""
+
+    alert =''
+
     if now > morning and now < noon:
         alert = "MORNING PILLS:"
         for x in results:
-            alert += ' | ' + x.medication_name
+            alert += ' 💊 ' + x.medication_name
     elif now > noon and now < night:
         alert= "NOON PILLS:"
         for x in results2:
-            alert += ' | ' + x.medication_name
-    elif now > night and now < morning:
+            alert += ' 💊 ' + x.medication_name
+    else:
         alert = "NIGHT PILLS:"
         for x in results3:
-            alert += ' | ' + x.medication_name
-    alert += ' |'
-    return render_template("userDash.html", queryScheduleMorning=results, queryScheduleNoon=results2, queryScheduleNight=results3, alert = alert)
+            alert += ' 💊 ' + x.medication_name
+    alert += ' 💊'
+
+    return render_template("userDash.html", queryScheduleMorning=results, queryScheduleNoon=results2, queryScheduleNight=results3, queryList=resultList, alert=alert)
 
 
 
@@ -286,6 +329,7 @@ def userDash():
 @login_required
 def logout():  # define the logout function
     to_say = ("Good Bye" + current_user.first_name)
+
     logout_user()
     #text_to_speech_1(to_say)
     return redirect(url_for('main.index'))

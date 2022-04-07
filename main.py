@@ -21,12 +21,6 @@ def medform():
     #flask_login.current_user
     TEMPLATES_AUTO_RELOAD = False
     return render_template('medform.html', header_name = current_user)
-# def add(self):
-#     medAdd = self.js.document.getElementById("medAdd");
-#     medForm = self.js.document.getElementById("medication_page");
-#     medContainer = self.js.document.getElementById("med_container");
-#     clone = self.js.document.getElementById("med_container").cloneNode(true);
-#     medForm.appendChild(clone);
 
 
 @main.route('/help') # profile page that return 'profile'
