@@ -327,6 +327,14 @@ def userDash():
             alert += ' 💊 ' + x.medication_name
     alert += ' 💊'
 
+    # if request.method == "POST":
+    #     name = request.form.get('name1')
+    #     queryList = queryList.filter(queryList.id == name).delete()
+
+
+
+
+
     return render_template("userDash.html", queryScheduleMorning=results, queryScheduleNoon=results2, queryScheduleNight=results3, queryList=resultList, alert=alert)
 
 
@@ -365,4 +373,5 @@ def getmeds():
     #
     # else:
     #     return render_template("userDash.html")
+
 

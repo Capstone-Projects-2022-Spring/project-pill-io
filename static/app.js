@@ -22,3 +22,4 @@ medAdd.onclick = function () {
     medForm.appendChild(clone);
   }
 };
+

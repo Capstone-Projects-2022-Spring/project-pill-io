@@ -22,6 +22,7 @@
       href="{{ url_for('static', filename = 'userDashStyle.css') }}"
     />
     <link rel="stylesheet" href="../static/userDashStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <section class="page-content">
@@ -92,10 +93,10 @@
         <article class="medList center">
           <h3 class="title">Medication List</h3>
           <br />
-
-          <table class="table small">
+          <table class="table large" id="medlist">
             <thead>
               <tr>
+                <th scope="col">Select</th>
                 <th scope="col">Name</th>
                 <th scope="col">Type</th>
                 <th scope="col">Dose</th>
@@ -105,6 +106,8 @@
             <tbody>
               {% for medication in queryList %}
               <tr>
+                  <td><button name = "delete"><i class="fa fa-trash"></i><div style="text-align: center;"/></button>
+                  </td>
                 <td>{{medication.medication_name}}</td>
                 <td>{{medication.medication_type}}</td>
                 <td>{{medication.medication_dose}}</td>
