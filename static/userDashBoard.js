@@ -4,7 +4,7 @@ var noonMed = document.getElementById("noonMed");
 var nightMed = document.getElementById("nightMed");
 var qry = sql.query("select * from medication");*/
 var table = document.getElementById("medlist");
-var deleteBtn = document.getElementByID('delete');
+var deleteBtn = document.getElementById('delete');
 
 document.onload = function () {
     var rowLength = table.rows.length;
@@ -13,9 +13,9 @@ document.onload = function () {
         var clone = deleteBtn.cloneNode(true);
         clone.querySelector("#delete > .control > input").name += i;
 
-        // tandi use this to go through the table and get the name value of any specified row
+        // tandi use this to go through the table and get the name value of all rows
         //gets rows of table
-        var rowLength = table.rows.length;
+        /*var rowLength = table.rows.length;
         //loops through rows
         for (i = 0; i < rowLength; i++) {
             //gets cells of current row
@@ -23,13 +23,29 @@ document.onload = function () {
             //gets amount of cells of current row
             var cellLength = oCells.length;
             //loops through each cell in current row
-            var name = oCells.item(2) // name value of selected row
-        }
+            var name = oCells.item(1) // name value of selected row
+        }*/
         i++;
         table.appendChild(clone);
 
     }
 }
+
+deleteBtn.onclick = function () {
+    rowLength = table.rows.length;
+    for (i = 0; i < rowLength; i++) {// for each row
+        //gets delete button cell of current row
+        var oCells = table.rows.item(i).cells;
+
+        if (oCells.item(0).contains($(this))) { // if the row contains THIS SPECIFIC delete button in the first column (tandi idk how to do this in Javascript)
+            var name = table.rows.item(i).item(1) // get the name of the medication in this specific row
+            print(name);
+            alert(name);
+        }
+    }
+}
+
+
 
 
 // {
