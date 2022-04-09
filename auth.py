@@ -268,6 +268,7 @@ def account():
 @auth.route('/userDash')  # define userdash
 @login_required
 def userDash():
+    print("HERE")
     querySchedule = db.session.query(Medication)
 
     querySchedule = querySchedule.outerjoin(
@@ -326,11 +327,6 @@ def userDash():
     # if request.method == "POST":
     #     name = request.form.get('name1')
     #     queryList = queryList.filter(queryList.id == name).delete()
-
-
-
-
-
     return render_template("userDash.html", queryScheduleMorning=results, queryScheduleNoon=results2, queryScheduleNight=results3, queryList=resultList, alert=alert)
 
 
@@ -384,8 +380,7 @@ def deleteMed(medId):
 
     query = query.filter(Prescription.user_id == current_user.id)
     querySelectDel = query.filter(
-        Medication.medication_id == medId)
-
+        Medication.medication_id == medId).one()
     db.session.delete(querySelectDel)
     db.session.commit()
-    return querySelectDel #Delete does not work
+    return redirect(url_for('auth.userDash')) #Delete does not work

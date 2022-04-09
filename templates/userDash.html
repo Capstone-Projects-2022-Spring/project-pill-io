@@ -93,7 +93,7 @@
         <article class="medList center">
           <h3 class="title">Medication List</h3>
           <br />
-
+          <form name="reloadSubmit">
             <table class="table large" id="medlist">
               <thead>
                 <tr>
@@ -107,7 +107,7 @@
               <tbody>
                 {% for medication in queryList %}
                 <tr>
-                  <td><button name = "delete" id="delete" class = "medDel" type = "submit" value = "{{medication.medication_id}}"><i class="fa fa-trash"></i></button></td>
+                  <td><button name = "delete" id="delete" class = "medDel" type = "button" value = "{{medication.medication_id}}"><i class="fa fa-trash"></i></button></td>
                   <td>{{medication.medication_name}}<input name = "listName" type="hidden" value= "{{medication.medication_id}}"></td>
                   <td>{{medication.medication_type}}</td>
                   <td>{{medication.medication_dose}}</td>
@@ -116,7 +116,7 @@
                 {% endfor %}
               </tbody>
             </table>
-
+          </form>
         </article>
         <article class="tutorial">
             <div class="turorialCard">

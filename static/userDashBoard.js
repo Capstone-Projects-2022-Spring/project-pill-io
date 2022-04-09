@@ -69,6 +69,9 @@ for (var deleteBtn of deleteBtns) {
     var request = new XMLHttpRequest();
     request.open("POST", `/deleteMed/${JSON.stringify(medId)}`);
     request.send();
+    setTimeout(function () {
+      window.location.reload();
+    }, 200);
   });
 }
 
