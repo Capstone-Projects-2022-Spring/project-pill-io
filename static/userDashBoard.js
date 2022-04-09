@@ -4,49 +4,73 @@ var noonMed = document.getElementById("noonMed");
 var nightMed = document.getElementById("nightMed");
 var qry = sql.query("select * from medication");*/
 var table = document.getElementById("medlist");
-var deleteBtn = document.getElementById('delete');
+var deleteBtns = document.querySelectorAll(".medDel");
 
-document.onload = function () {
-    var rowLength = table.rows.length;
-    if (i < rowLength) {
-        // clones delete button in order to give it a different name (+i), so that we know which entry to delete later
-        var clone = deleteBtn.cloneNode(true);
-        clone.querySelector("#delete > .control > input").name += i;
+// document.onload = function () {
+//   var rowLength = table.rows.length;
+//   if (i < rowLength) {
+//     // clones delete button in order to give it a different name (+i), so that we know which entry to delete later
+//     var clone = deleteBtn.cloneNode(true);
+//     clone.querySelector("#delete > .control > input").name += i;
 
-        // tandi use this to go through the table and get the name value of all rows
-        //gets rows of table
-        /*var rowLength = table.rows.length;
-        //loops through rows
-        for (i = 0; i < rowLength; i++) {
-            //gets cells of current row
-            var oCells = table.rows.item(i).cells;
-            //gets amount of cells of current row
-            var cellLength = oCells.length;
-            //loops through each cell in current row
-            var name = oCells.item(1) // name value of selected row
-        }*/
-        i++;
-        table.appendChild(clone);
+//     // tandi use this to go through the table and get the name value of all rows
+//     //gets rows of table
+//     /*var rowLength = table.rows.length;
+//         //loops through rows
+//         for (i = 0; i < rowLength; i++) {
+//             //gets cells of current row
+//             var oCells = table.rows.item(i).cells;
+//             //gets amount of cells of current row
+//             var cellLength = oCells.length;
+//             //loops through each cell in current row
+//             var name = oCells.item(1) // name value of selected row
+//         }*/
+//     i++;
+//     table.appendChild(clone);
+//   }
+// };
 
-    }
+// deleteBtn.onclick = function () {
+//   rowLength = table.rows.length;
+//   for (i = 0; i < rowLength; i++) {
+//     // for each row
+//     //gets delete button cell of current row
+//     var oCells = table.rows.item(i).cells;
+
+//     if (oCells.item(0).contains($(this))) {
+//       // if the row contains THIS SPECIFIC delete button in the first column (tandi idk how to do this in Javascript)
+//       var name = table.rows.item(i).item(1); // get the name of the medication in this specific row
+//       print(name);
+//       alert(name);
+//     }
+//   }
+// };
+
+// deleteBtn.forEach(function (event) {
+//   var el = event.target.value;
+//   document.write("111");
+//   //   document.write(el.value);
+// });
+
+// for (var deleteBtn of deleteBtns) {
+//   deleteBtn.addEventListener("click", function () {
+//     var medId = this.value;
+//     console.log(medId);
+//     var request = new XMLHttpRequest();
+//     request.open("POST", `/deleteMed/${JSON.stringify(medId)}`);
+//     request.send();
+//   });
+// }
+
+for (var deleteBtn of deleteBtns) {
+  deleteBtn.addEventListener("click", function () {
+    var medId = this.value;
+    console.log(medId);
+    var request = new XMLHttpRequest();
+    request.open("POST", `/deleteMed/${JSON.stringify(medId)}`);
+    request.send();
+  });
 }
-
-deleteBtn.onclick = function () {
-    rowLength = table.rows.length;
-    for (i = 0; i < rowLength; i++) {// for each row
-        //gets delete button cell of current row
-        var oCells = table.rows.item(i).cells;
-
-        if (oCells.item(0).contains($(this))) { // if the row contains THIS SPECIFIC delete button in the first column (tandi idk how to do this in Javascript)
-            var name = table.rows.item(i).item(1) // get the name of the medication in this specific row
-            print(name);
-            alert(name);
-        }
-    }
-}
-
-
-
 
 // {
 //   {
@@ -64,24 +88,7 @@ db.all(sql,[],(err,rows)=>{
     rows.forEach((row)=>{console.log(row)});
 */
 
-
 //gets table
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 
@@ -121,7 +128,6 @@ var request = new XMLHttpRequest();
         ;
         request.send('longitude=' + longitude);*/
 
-
 // window.onload = function(){
 //     var Morning = new Date();
 //     Morning.setHours(6,0,0,0);
@@ -134,7 +140,7 @@ var request = new XMLHttpRequest();
 
 //     var today = new Date();
 //     var time = today.getHours();
-//     if(time > Morning && time < Noon){ 
+//     if(time > Morning && time < Noon){
 //         alert("Morning");
 //     }
 //     else if(time > Noon && time < Night){
