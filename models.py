@@ -10,11 +10,11 @@ from __init__ import db
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)  # primary keys are required by SQLAlchemy
     email = db.Column(db.String(100), unique=True)
-    password = db.Column(db.String(100))
+    password = db.Column(db.String(100),nullable=False)
     first_name = db.Column(db.String(1000))
     last_name = db.Column(db.String(1000))
     dob = db.Column(db.String(100))
-    image = db.Column(db.String(200))
+    image = db.Column(db.String(200),nullable=False)
 
     def init(self, email, first_name, last_name, dob, image):
         self.email = email
