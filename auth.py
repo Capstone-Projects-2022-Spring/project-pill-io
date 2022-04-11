@@ -15,7 +15,7 @@ from __init__ import db, text_to_speech_1
 from datetime import datetime
 import calendar
 from datetime import date
-
+import json
 
 MAX_CONTENT_LENGTH = 1024 * 1024
 UPLOAD_EXTENSIONS = ['.jpg', '.png', '.gif', '.PNG', '.JPG', '.JPEG']
@@ -268,6 +268,7 @@ def account():
 @auth.route('/userDash')  # define userdash
 @login_required
 def userDash():
+    print("HERE")
     querySchedule = db.session.query(Medication)
 
     querySchedule = querySchedule.outerjoin(
@@ -299,16 +300,12 @@ def userDash():
     resultList = queryList.all()
     
     now = datetime.now().hour
-    print(now);
     morning = datetime.now().hour
     morning = 6
     noon = datetime.now().hour
     noon = 12
     night = datetime.now().hour
     night = 18
-    print(results)
-    print("NEXT")
-    print(queryScheduleMorning)
 
     alert = "" # tandi, i added this because it wouldn't launch because alert wasn't declared
     # since it sometimes never gets declared below
@@ -327,6 +324,9 @@ def userDash():
             alert += ' 💊 ' + x.medication_name
     alert += ' 💊'
 
+    # if request.method == "POST":
+    #     name = request.form.get('name1')
+    #     queryList = queryList.filter(queryList.id == name).delete()
     return render_template("userDash.html", queryScheduleMorning=results, queryScheduleNoon=results2, queryScheduleNight=results3, queryList=resultList, alert=alert)
 
 
@@ -358,11 +358,29 @@ def getmeds():
         query = query.filter(Prescription.user_id == current_user.id)
 
         results = query.all()
-
-        print(results)
-
         return render_template("userDash.html", query=query)
     #
     # else:
     #     return render_template("userDash.html")
+    
 
+@auth.route('/deleteMed/<string:medId>', methods=["GET", "POST"])
+@login_required
+def deleteMed(medId):
+    # medId = request.form.get('medId')
+    # v = request.get_json().get('medId')
+    medId = json.loads(medId);
+    print("medId")
+    print(medId)
+    print("medId")
+    query = db.session.query(Medication)
+
+    query = query.outerjoin(
+        Prescription, Medication.medication_id == Prescription.medication_id)
+
+    query = query.filter(Prescription.user_id == current_user.id)
+    querySelectDel = query.filter(
+        Medication.medication_id == medId).one()
+    db.session.delete(querySelectDel)
+    db.session.commit()
+    return redirect(url_for('auth.userDash')) #Delete does not work

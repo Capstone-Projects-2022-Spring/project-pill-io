@@ -46,5 +46,3 @@ if __name__ == '__main__':
     app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
     app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
     app.config['UPLOAD_PATH'] = 'static/userimages'
-    TEMPLATES_AUTO_RELOAD = False
-    app.jinja_env.auto_reload = False
