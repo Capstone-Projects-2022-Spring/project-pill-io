@@ -16,6 +16,7 @@ from datetime import datetime
 import calendar
 from datetime import date
 import json
+from pytz import timezone
 
 MAX_CONTENT_LENGTH = 1024 * 1024
 UPLOAD_EXTENSIONS = ['.jpg', '.png', '.gif', '.PNG', '.JPG', '.JPEG']
@@ -298,13 +299,13 @@ def userDash():
     queryList = queryList.filter(Prescription.user_id == current_user.id)
 
     resultList = queryList.all()
-    
-    now = datetime.now().hour
-    morning = datetime.now().hour
+    tz = timezone('EST')
+    now = datetime.now(tz).hour
+    morning = datetime.now(tz).hour
     morning = 6
-    noon = datetime.now().hour
+    noon = datetime.now(tz).hour
     noon = 12
-    night = datetime.now().hour
+    night = datetime.now(tz).hour
     night = 18
 
     alert = "" # tandi, i added this because it wouldn't launch because alert wasn't declared
