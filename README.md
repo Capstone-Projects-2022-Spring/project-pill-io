@@ -274,7 +274,7 @@ Merge Pi 165 create database restrictions and error handling for user entry for 
 Pi 184 work on medform delete functionality with tandi by @t-harun in #43
 
 
-## How to create an account and log in
+## How to create an account, log in, and create (a) new medication(s) for oneself
 
   Creating an Account:
     
@@ -294,7 +294,7 @@ Pi 184 work on medform delete functionality with tandi by @t-harun in #43
       - The user is able to Sign up without any problem and the system will save the user's details onto the db. 
       - User will see an "Account created" confirmation popup
 
-  Logging into an Account :
+  Logging into an Account:
     
     Actions/Steps:
       - Click Login on the navbar
@@ -309,10 +309,58 @@ Pi 184 work on medform delete functionality with tandi by @t-harun in #43
       - The user will see the "Medication Form" page in front of them, which is marked by the "/profile" page identifier in the URL
       - If the user checked the "Remember me" checkbox, they are able to close the website, reopen it, and still be logged in.
       - If the user did not check the "Remember me" checkbox, they will be required to login again when they close and reopen the website.
+      
+  Creating a New Medication:
+  
+    Actions/Steps:
+      - Login using your credentials
+      - Click on "Medform" on the navbar up top
+      - Scroll down and click on the "+" button at the bottom of the form to add another form
+      - Fill out the required information for each medication form (two medications/two forms)
+      - For this release, each medication name and class must be unique and must not be 
+        already existing duplicates
+      - Furthermore, the dosage field must be filled out in the format of "XXmg", instead of 
+        "XX" or "XX mg", where XX is the number of milligrams of the medication.
+      - Once you're done filling out the form, click submit at the bottom of the form
+      
+    Expected Results:
+      - Upon successfully submitting, the page will refresh and the form will clear, marking that
+        your medication has been successfully submitted
 
 ## User Acceptance Tests
 
-
+  Deleting a Medication:
+  
+    Actions/Steps:
+      - Login using your credentials
+      - Create a new medication using the instructions above, if necessary
+      - Click on "Dashboard" on the navbar up top
+      - Scroll down and click on the "trashbin" button on the left side of entry you wish to delete
+      within the medication list
+      
+    Expected Results:
+      - Upon successfully deleting, the page will refresh and the medication will disappear from 
+      the medication list.
+      
+   Viewing One's Medication Schedule:
+   
+    Actions/Steps:
+      - Login using your credentials
+      - Create a new medication using the instructions above, if necessary
+      - Click on "Dashboard" on the navbar up top
+      - Scroll down and view your daily medication schedule on the left hand
+      side of the page, ensuring your medication is sitting at the correct
+      time of day
+      - Scroll back up to the top, and view the red alert at the top of the
+      page, NOTE: This can only be done when you are doing the testing
+      prior to or around the time of day selected on your medication, e.g.
+      When it is 11:30 to 12:30, one can see their noon medication in the red
+      alert above.
+      
+    Expected Results:
+      - Upon successfully finding the medication schedule and medication alert
+      containers, the user will see their medication name clearly within those
+      two containers.
  
 ## Source Code
 
