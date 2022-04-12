@@ -351,16 +351,31 @@ Pi 184 work on medform delete functionality with tandi by @t-harun in #43
       - Scroll down and view your daily medication schedule on the left hand
       side of the page, ensuring your medication is sitting at the correct
       time of day
-      - Scroll back up to the top, and view the red alert at the top of the
-      page, NOTE: This can only be done when you are doing the testing
-      prior to or around the time of day selected on your medication, e.g.
-      When it is 11:30 to 12:30, one can see their noon medication in the red
-      alert above.
       
     Expected Results:
-      - Upon successfully finding the medication schedule and medication alert
-      containers, the user will see their medication name clearly within those
-      two containers.
+      - Upon successfully finding the medication schedule container, the user
+      will see their medication name clearly within that container
+      
+   Viewing One's Medication Alert:
+   
+    Actions/Steps:
+      - Login using your credentials
+      - Create a new medication using the instructions above, if necessary
+      - Click on "Dashboard" on the navbar up top
+      - View your daily medication red alert at the top of the page. NOTE: This must
+      be done at the same time of day that is entered in one's medication. The morning/
+      noon/night arbitrary times follow the following pattern:
+      Morning: 6 AM -> 12 PM
+      Noon: 12 PM -> 6 PM
+      Night 6 PM -> 6 AM
+      Please ensure you do this test during the same time range that is used for your
+      medication. If you do not wish to wait, please use the above instructions to create
+      a new medication for whatever time of day it is for you when you're performing this
+      test
+      
+    Expected Results:
+      - Upon successfully finding the medication alert, the user will see their medication
+      name clearly within that alert.
  
 ## Source Code
 
