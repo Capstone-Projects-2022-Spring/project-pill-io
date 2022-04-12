@@ -260,6 +260,19 @@ Test 6:
 !! MILESTONE DEMO 3 !! 
  
 ## Release Notes ##
+What's Changed
+Add Schedule function by @t-harun in #33
+Fixed medication form entering multiple medications at once, no longe… by @t-harun in #34
+Pi 156 save picture web cam locally by @Ethanterrel in #36
+Added logo on navbar by @tuh00755 in #35
+Pi 37 create text to speech audio receiver element by @tuh00755 in #37
+jpg gif png by @tuh00755 in #38
+Pi 162 create alerts notifications for all pages by @t-harun in #39
+Merge Pi 163 fix issue medication form and medication list with tandi into main by @mishagolikov in #42
+Merge Pi 164 create tests for medication form and medication list into Main by @mishagolikov in #40
+Merge Pi 165 create database restrictions and error handling for user entry for medication form into main by @mishagolikov in #41
+Pi 184 work on medform delete functionality with tandi by @t-harun in #43
+
 
 ## How to create an account and log in
 
@@ -311,6 +324,9 @@ link : https://github.com/Capstone-Projects-2022-Spring/project-pill-io/releases
 !! MILESTONE DEMO 2 !!
 
 v2.0.0
-https://github.com/Capstone-Projects-2022-Spring/project-pill-io/releases/tag/v2.0.0
+link : https://github.com/Capstone-Projects-2022-Spring/project-pill-io/releases/tag/v2.0.0
 
 !! MILESTONE DEMO 3 !!
+
+v3.0.0
+link : https://github.com/Capstone-Projects-2022-Spring/project-pill-io/releases/tag/v3.0.0
