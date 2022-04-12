@@ -272,7 +272,7 @@ Test 6:
       - Enter your last name
       - Enter your preferred Password 
       - Enter your Date of Birth
-      - Enter a picture of your face (THIS STEP IS REQUIRED & {'.jpg', '.png', '.gif'} FORMATS ONLY)
+      - Enter a picture of your face (THIS STEP IS REQUIRED)
           - Use different pictures since or the database will throw an error if the pic isnt unique
           - it will later be used as your Profile Picture and for facial recognition
       - Press the Sign Up Button at the bottom of the form
