@@ -316,11 +316,8 @@ Pi 184 work on medform delete functionality with tandi by @t-harun in #43
       - Login using your credentials
       - Click on "Medform" on the navbar up top
       - Scroll down and click on the "+" button at the bottom of the form to add another form
-      - Fill out the required information for each medication form (two medications/two forms)
-      - For this release, each medication name and class must be unique and must not be 
-        already existing duplicates
-      - Furthermore, the dosage field must be filled out in the format of "XXmg", instead of 
-        "XX" or "XX mg", where XX is the number of milligrams of the medication.
+      - The dosage field is number only, meant to take in the milligram dosage of the
+      medication
       - Once you're done filling out the form, click submit at the bottom of the form
       
     Expected Results:
