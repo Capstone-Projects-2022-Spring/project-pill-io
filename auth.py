@@ -13,6 +13,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 
 from __init__ import db, text_to_speech_1
 from datetime import datetime
+import callr
 import calendar
 from datetime import date
 import json
@@ -385,3 +386,8 @@ def deleteMed(medId):
     db.session.delete(querySelectDel)
     db.session.commit()
     return redirect(url_for('auth.userDash')) #Delete does not work
+
+def notifications():
+    api = callr.Api("login", "password")
+    testSMS = api.call('sms.send', 'SMS', "+12677617946", "Hey i'm texting myself")
+
