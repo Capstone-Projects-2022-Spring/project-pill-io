@@ -1,11 +1,23 @@
 import unittest
-from io import StringIO, BytesIO
 
-from flask import current_app
-from __init__ import db
-from main import create_app
-from auth import login,logout,userDash,signup
+import os
+from io import BytesIO
+from queue import Empty
+import time
 
+from flask import Blueprint, render_template, redirect, url_for, request, flash, current_app, abort, logging, globals
+from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
+
+import sys
+
+from models import User, UserForm, Medication, Prescription
+from flask_login import login_user, logout_user, login_required, current_user
+
+from __init__ import db, text_to_speech_1, create_app
+from datetime import datetime
+import calendar
+from datetime import date
 
 class TestWebApp(unittest.TestCase):
 
@@ -25,7 +37,7 @@ class TestWebApp(unittest.TestCase):
     def test_home_page_redirect(self):
         response = self.client.get('/', follow_redirects=True)
         assert response.status_code == 200
-        assert response.request.path == '/login'
+        assert response.request.path == 'auth.login'
 
     def test_registration_form(self):
         response = self.client.get('/signup')
@@ -40,8 +52,8 @@ class TestWebApp(unittest.TestCase):
         #assert 'type = "submit"' in html
 
     def test_register_user(self):
-        '''
-        with open('/Users/AbinCheriyan/Documents/GitHub/project-pill-io/static/userimages/Screen Shot 2022-04-10 at 4.47.08 AM.png', 'rb') as img1:
+
+        with open('../static/userimages/Screen Shot 2022-04-17 at 2.15.34 PM.png', 'rb') as img1:
             imgStringIO1 = BytesIO(img1.read())
 
         response = self.client.post('/signup', content_type='multipart/form-data', data={
@@ -54,11 +66,12 @@ class TestWebApp(unittest.TestCase):
         }, follow_redirects=True)
         assert response.status_code == 200
         assert response.request.path == '/signup'  # redirected to login
-        '''
+
+    def test_login(self):
         # login with new user
         response = self.client.post('/login', data={
-            'username': 'alice@example.com',
-            'password': 'foo123',
+            'username': 'abin@gmail.com',
+            'password': '123456',
         }, follow_redirects=True)
         assert response.status_code == 200
         html = response.get_data(as_text=True)
