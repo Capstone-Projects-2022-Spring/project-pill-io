@@ -37,7 +37,7 @@ class TestWebApp(unittest.TestCase):
     def test_home_page_redirect(self):
         response = self.client.get('/', follow_redirects=True)
         assert response.status_code == 200
-        assert response.request.path == 'auth.login'
+        assert response.request.path == '/login'
 
     def test_registration_form(self):
         response = self.client.get('/signup')
@@ -53,7 +53,7 @@ class TestWebApp(unittest.TestCase):
 
     def test_register_user(self):
 
-        with open('../static/userimages/Screen Shot 2022-04-17 at 2.15.34 PM.png', 'rb') as img1:
+        with open('../static/userimages/test_image.png', 'rb') as img1:
             imgStringIO1 = BytesIO(img1.read())
 
         response = self.client.post('/signup', content_type='multipart/form-data', data={
