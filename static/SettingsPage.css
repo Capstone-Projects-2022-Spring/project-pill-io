@@ -2,13 +2,12 @@
     box-sizing: border-box;
 }
 
-.container {
+.container1 {
 	width: 800px;
     margin:0 auto;
     border-radius: none;
     background-color: lightblue;
     padding: 20px;
-
 }
 
 .row {
@@ -23,8 +22,6 @@ display: flex;
 flex-basis:50%;/*Allows to center the field box*/
 border-radius: 2px;
 padding: 10px 10px;
-}
-
 }
 
 input[type=text] {
