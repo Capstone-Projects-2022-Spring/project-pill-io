@@ -85,3 +85,13 @@ class TestWebApp(unittest.TestCase):
         assert response.status_code == 302
         html = response.get_data(as_text=True)
         assert response.request.path == '/login'
+
+    def test_medform(self):
+        response = self.client.post('/submitmeds', data={
+            'medication_name': 'pillA',
+            'medication_type': 'typeA',
+            'medication_dosage': '10',
+            'medication_time': 'Morning'
+        })
+        assert response.status_code == 302
+        html = response.get_data(as_text=True)
